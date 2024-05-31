@@ -10,10 +10,6 @@ To install the SDK, you can use npm:
 npm install kiloex-ts-sdk
 ```
 
-## Documentation
-
-Full documentation and instructions, visit: [Kiloex Docs](https://xxxx).
-
 ## Getting started
 
 ### Initialization
