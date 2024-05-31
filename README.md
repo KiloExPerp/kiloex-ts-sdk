@@ -1,4 +1,4 @@
-# Kilo TS SDK
+# KiloEx TS SDK
 
 ## Introduction
 The Kilo SDK provides a set of TypeScript interfaces and functions for interacting with the Kilo protocol. allowing users to manage their positions, orders, and trade history on supported chains.
