@@ -7,7 +7,7 @@ The Kilo SDK provides a set of TypeScript interfaces and functions for interacti
 To install the SDK, you can use npm:
 
 ```bash
-npm install kilo-ts-sdk
+npm install kiloex-ts-sdk
 ```
 
 ## Documentation
@@ -19,7 +19,7 @@ Full documentation and instructions, visit: [Kiloex Docs](https://xxxx).
 ### Initialization
 
 ```javascript
-import { create, ChainId } from 'kilo-ts-sdk';
+import { create, ChainId } from 'kiloex-ts-sdk';
 const kiloClient = create(ChainId.BSC);
 ```
 
@@ -28,7 +28,7 @@ const kiloClient = create(ChainId.BSC);
 #### Supported Chains
 Get a list of supported chains:
 ```javascript
-import { supportedChains } from 'kilo-ts-sdk';
+import { supportedChains } from 'kiloex-ts-sdk';
 const chains = supportedChains();
 ```
 ***
