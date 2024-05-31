@@ -1,0 +1,41 @@
+{
+  "name": "kiloex-ts-sdk",
+  "version": "1.0.0",
+  "description": "KiloEx contract interaction SDK",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.ts\""
+  },
+  "author": "bevan",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-typescript": "^7.24.1",
+    "@eslint/js": "^9.3.0",
+    "@types/jest": "^29.5.12",
+    "babel-jest": "^29.7.0",
+    "eslint": "^9.3.0",
+    "globals": "^15.3.0",
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.11.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "axios": "^1.6.8",
+    "bignumber.js": "^9.1.2",
+    "viem": "^2.10.3"
+  }
+}

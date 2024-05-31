@@ -1,0 +1,12 @@
+node_modules
+.sass-cache
+.tmp
+.DS_Store
+.editorconfig
+npm-debug.log
+.ftpconfig
+build
+dist
+.history
+.vscode
+.idea
