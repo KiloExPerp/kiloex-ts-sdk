@@ -191,7 +191,9 @@ export const createApi = (chainId: ChainId): Api => {
 		queryIndexSymbols: async () => {
 			const chainId = activeChainConfig.chainId
       const url = INDEX_SYMBOL_MAPS[chainId] || '/index/symbols'
-      return axios.get(url)
+       
+			const responseData = await axios.get(url)
+			return responseData.data
     },
 		queryKiloCache: async () => {
 			const response: QueryKiloCache = await instance.get('/common/queryKiloCache');

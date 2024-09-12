@@ -42,11 +42,11 @@ export const addressMap: {
 export const gasMap: {
   [key: string]: bigint
 } = {
-  createIncreasePosition: 500_000n, 
-  createIncreasePositionWithCloseTriggerOrders: 1000_000n,
-  createIncreaseOrder: 400_000n,
-  createDecreasePosition: 380_000n, 
-  createDecreaseOrder: 400_000n,
+  createIncreasePositionV3: 500_000n, 
+  createIncreasePositionWithCloseTriggerOrdersV3: 1000_000n,
+  createIncreaseOrderV3: 400_000n,
+  createDecreasePositionV3: 380_000n, 
+  createDecreaseOrderV3: 400_000n,
   cancelDecreaseOrder: 180_000n,
   cancelIncreaseOrder: 180_000n, 
   updateDecreaseOrder: 150_000n, 
@@ -73,29 +73,29 @@ export const approveMap: {
   [OpenType.Market]: { 
 		abi: positionRouter.abi,
 		addressName: 'positionRouterAddr',
-    increaseFunctionName: 'createIncreasePosition',
-    closeFunctionName: 'createDecreasePosition',
+    increaseFunctionName: 'createIncreasePositionV3',
+    closeFunctionName: 'createDecreasePositionV3',
 	},
   [OpenType.Limit]: {
 		abi: orderBook.abi,
 		addressName: 'orderBookAddr',
-    increaseFunctionName: 'createIncreaseOrder',
+    increaseFunctionName: 'createIncreaseOrderV3',
 	}, 
   [OpenType.TPSL]: { 
 		abi: marketOrderWithTriggerOrder.abi,
     addressName: 'marketOrderWithTriggerOrder',
     approveName: '',
-    increaseFunctionName: "createIncreasePositionWithCloseTriggerOrders",
+    increaseFunctionName: "createIncreasePositionWithCloseTriggerOrdersV3",
 	},
   [OpenType.StopLoss]: {
     abi: orderBook.abi,
 		addressName: 'orderBookAddr',
-    increaseFunctionName: 'createDecreaseOrder',
+    increaseFunctionName: 'createDecreaseOrderV3',
   },
   [OpenType.TakeProfit]: {
     abi: orderBook.abi,
 		addressName: 'orderBookAddr',
-    increaseFunctionName: 'createDecreaseOrder',
+    increaseFunctionName: 'createDecreaseOrderV3',
   },
 }
 
