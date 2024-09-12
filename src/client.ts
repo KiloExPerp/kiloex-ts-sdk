@@ -36,7 +36,7 @@ export const kiloClient: KiloClient = (() => {
 			if (env === 'WEB') {
 				walletClient = createWalletClient({ 
 					chain: chain, 
-					transport: custom(window.ethereum!), 
+					transport: custom((window as any).ethereum), 
 				})
 			} else {
 				walletClient = createWalletClient({ 
