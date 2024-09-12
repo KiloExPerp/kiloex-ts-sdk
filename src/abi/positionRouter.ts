@@ -1,2006 +1,2255 @@
 export default {
 	abi: [
 		{
-			inputs: [],
-			stateMutability: 'nonpayable',
-			type: 'constructor'
+			"inputs": [],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'margin',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "margin",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isLong',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isLong",
+					"type": "bool"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'acceptablePrice',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'executionFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "executionFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'blockGap',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockGap",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'timeGap',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timeGap",
+					"type": "uint256"
 				}
 			],
-			name: 'CancelDecreasePosition',
-			type: 'event'
+			"name": "CancelDecreasePosition",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'margin',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "margin",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'leverage',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "leverage",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'tradeFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "tradeFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isLong',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isLong",
+					"type": "bool"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'acceptablePrice',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'executionFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "executionFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'blockGap',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockGap",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'timeGap',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timeGap",
+					"type": "uint256"
 				}
 			],
-			name: 'CancelIncreasePosition',
-			type: 'event'
+			"name": "CancelIncreasePosition",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'margin',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "margin",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isLong',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isLong",
+					"type": "bool"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'acceptablePrice',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'executionFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "executionFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'blockNumber',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockNumber",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'blockTime',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockTime",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "bytes",
+					"name": "extraInfo",
+					"type": "bytes"
 				}
 			],
-			name: 'CreateDecreasePosition',
-			type: 'event'
+			"name": "CreateDecreasePositionV3",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'margin',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "margin",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'leverage',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "leverage",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'tradeFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "tradeFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isLong',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isLong",
+					"type": "bool"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'acceptablePrice',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'executionFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "executionFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'blockNumber',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockNumber",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'blockTime',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockTime",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'gasPrice',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "gasPrice",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "bytes",
+					"name": "extraInfo",
+					"type": "bytes"
 				}
 			],
-			name: 'CreateIncreasePosition',
-			type: 'event'
+			"name": "CreateIncreasePositionV3",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'margin',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "margin",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isLong',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isLong",
+					"type": "bool"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'acceptablePrice',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'executionFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "executionFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'blockGap',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockGap",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'timeGap',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timeGap",
+					"type": "uint256"
 				}
 			],
-			name: 'ExecuteDecreasePosition',
-			type: 'event'
+			"name": "ExecuteDecreasePosition",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'string',
-					name: 'executionError',
-					type: 'string'
+					"indexed": false,
+					"internalType": "string",
+					"name": "executionError",
+					"type": "string"
 				}
 			],
-			name: 'ExecuteDecreasePositionError',
-			type: 'event'
+			"name": "ExecuteDecreasePositionError",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'margin',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "margin",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'leverage',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "leverage",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'tradeFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "tradeFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isLong',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isLong",
+					"type": "bool"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'acceptablePrice',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'executionFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "executionFee",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'blockGap',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "blockGap",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'timeGap',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timeGap",
+					"type": "uint256"
 				}
 			],
-			name: 'ExecuteIncreasePosition',
-			type: 'event'
+			"name": "ExecuteIncreasePosition",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'string',
-					name: 'executionError',
-					type: 'string'
+					"indexed": false,
+					"internalType": "string",
+					"name": "executionError",
+					"type": "string"
 				}
 			],
-			name: 'ExecuteIncreasePositionError',
-			type: 'event'
+			"name": "ExecuteIncreasePositionError",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'uint8',
-					name: 'version',
-					type: 'uint8'
+					"indexed": false,
+					"internalType": "uint8",
+					"name": "version",
+					"type": "uint8"
 				}
 			],
-			name: 'Initialized',
-			type: 'event'
+			"name": "Initialized",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'allowUserCloseOnly',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "allowUserCloseOnly",
+					"type": "bool"
 				}
 			],
-			name: 'OwnerSetAllowUserCloseOnly',
-			type: 'event'
+			"name": "OwnerSetAllowUserCloseOnly",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'minBlockDelayKeeper',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "minBlockDelayKeeper",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'minTimeExecuteDelayPublic',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "minTimeExecuteDelayPublic",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'minTimeCancelDelayPublic',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "minTimeCancelDelayPublic",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'maxTimeDelay',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "maxTimeDelay",
+					"type": "uint256"
 				}
 			],
-			name: 'OwnerSetDelayValues',
-			type: 'event'
+			"name": "OwnerSetDelayValues",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isUserCancelEnabled',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isUserCancelEnabled",
+					"type": "bool"
 				}
 			],
-			name: 'OwnerSetIsUserCancelEnabled',
-			type: 'event'
+			"name": "OwnerSetIsUserCancelEnabled",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isUserExecuteEnabled',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isUserExecuteEnabled",
+					"type": "bool"
 				}
 			],
-			name: 'OwnerSetIsUserExecuteEnabled',
-			type: 'event'
+			"name": "OwnerSetIsUserExecuteEnabled",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'minExecutionFee',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "minExecutionFee",
+					"type": "uint256"
 				}
 			],
-			name: 'OwnerSetMinExecutionFee',
-			type: 'event'
+			"name": "OwnerSetMinExecutionFee",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: true,
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					indexed: false,
-					internalType: 'bool',
-					name: 'isActive',
-					type: 'bool'
+					"indexed": false,
+					"internalType": "bool",
+					"name": "isActive",
+					"type": "bool"
 				}
 			],
-			name: 'OwnerSetPositionKeeper',
-			type: 'event'
+			"name": "OwnerSetPositionKeeper",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'address',
-					name: 'referralStorage',
-					type: 'address'
+					"indexed": false,
+					"internalType": "address",
+					"name": "referralStorage",
+					"type": "address"
 				}
 			],
-			name: 'OwnerSetReferralStorage',
-			type: 'event'
+			"name": "OwnerSetReferralStorage",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'increasePositionRequestKeysStart',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "increasePositionRequestKeysStart",
+					"type": "uint256"
 				},
 				{
-					indexed: false,
-					internalType: 'uint256',
-					name: 'decreasePositionRequestKeysStart',
-					type: 'uint256'
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "decreasePositionRequestKeysStart",
+					"type": "uint256"
 				}
 			],
-			name: 'OwnerSetRequestKeysStartValues',
-			type: 'event'
+			"name": "OwnerSetRequestKeysStartValues",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'address',
-					name: 'gov',
-					type: 'address'
+					"indexed": false,
+					"internalType": "address",
+					"name": "gov",
+					"type": "address"
 				}
 			],
-			name: 'SetGov',
-			type: 'event'
+			"name": "SetGov",
+			"type": "event"
 		},
 		{
-			anonymous: false,
-			inputs: [
+			"anonymous": false,
+			"inputs": [
 				{
-					indexed: false,
-					internalType: 'address',
-					name: 'owner',
-					type: 'address'
+					"indexed": false,
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
 				}
 			],
-			name: 'SetOwner',
-			type: 'event'
+			"name": "SetOwner",
+			"type": "event"
 		},
 		{
-			stateMutability: 'payable',
-			type: 'fallback'
+			"stateMutability": "payable",
+			"type": "fallback"
 		},
 		{
-			inputs: [],
-			name: 'EXECUTE_FEE_CAP',
-			outputs: [
+			"inputs": [],
+			"name": "EXECUTE_FEE_CAP",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'acceptGov',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"inputs": [],
+			"name": "acceptGov",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'acceptOwner',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"inputs": [],
+			"name": "acceptOwner",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'allowUserCloseOnly',
-			outputs: [
+			"inputs": [],
+			"name": "allowUserCloseOnly",
+			"outputs": [
 				{
-					internalType: 'bool',
-					name: '',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bytes32',
-					name: '_key',
-					type: 'bytes32'
+					"internalType": "bytes32",
+					"name": "_key",
+					"type": "bytes32"
 				},
 				{
-					internalType: 'address payable',
-					name: '_executionFeeReceiver',
-					type: 'address'
+					"internalType": "address payable",
+					"name": "_executionFeeReceiver",
+					"type": "address"
 				}
 			],
-			name: 'cancelDecreasePosition',
-			outputs: [
+			"name": "cancelDecreasePosition",
+			"outputs": [
 				{
-					internalType: 'bool',
-					name: '',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
 				}
 			],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bytes32',
-					name: '_key',
-					type: 'bytes32'
+					"internalType": "bytes32",
+					"name": "_key",
+					"type": "bytes32"
 				},
 				{
-					internalType: 'address payable',
-					name: '_executionFeeReceiver',
-					type: 'address'
+					"internalType": "address payable",
+					"name": "_executionFeeReceiver",
+					"type": "address"
 				}
 			],
-			name: 'cancelIncreasePosition',
-			outputs: [
+			"name": "cancelIncreasePosition",
+			"outputs": [
 				{
-					internalType: 'bool',
-					name: '',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
 				}
 			],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '_productId',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_margin',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
 				},
 				{
-					internalType: 'bool',
-					name: '_isLong',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
 				},
 				{
-					internalType: 'uint256',
-					name: '_acceptablePrice',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_executionFee',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
 				}
 			],
-			name: 'createDecreasePosition',
-			outputs: [],
-			stateMutability: 'payable',
-			type: 'function'
+			"name": "createDecreasePosition",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '_productId',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_margin',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
 				},
 				{
-					internalType: 'bool',
-					name: '_isLong',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
 				},
 				{
-					internalType: 'uint256',
-					name: '_acceptablePrice',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_executionFee',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
 				},
 				{
-					internalType: 'address',
-					name: '_account',
-					type: 'address'
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
 				},
 				{
-					internalType: 'bool',
-					name: '_1ct',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "_1ct",
+					"type": "bool"
 				}
 			],
-			name: 'createDecreasePositionDelegate',
-			outputs: [],
-			stateMutability: 'payable',
-			type: 'function'
+			"name": "createDecreasePositionDelegate",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '_productId',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_margin',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_leverage',
-					type: 'uint256'
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
 				},
 				{
-					internalType: 'bool',
-					name: '_isLong',
-					type: 'bool'
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_acceptablePrice',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_executionFee',
-					type: 'uint256'
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
 				},
 				{
-					internalType: 'bytes32',
-					name: '_referralCode',
-					type: 'bytes32'
+					"internalType": "bool",
+					"name": "_1ct",
+					"type": "bool"
+				},
+				{
+					"internalType": "bytes",
+					"name": "extraInfo",
+					"type": "bytes"
 				}
 			],
-			name: 'createIncreasePosition',
-			outputs: [],
-			stateMutability: 'payable',
-			type: 'function'
+			"name": "createDecreasePositionDelegateV3",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '_productId',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_margin',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_leverage',
-					type: 'uint256'
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
 				},
 				{
-					internalType: 'bool',
-					name: '_isLong',
-					type: 'bool'
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_acceptablePrice',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_executionFee',
-					type: 'uint256'
-				},
-				{
-					internalType: 'bytes32',
-					name: '_referralCode',
-					type: 'bytes32'
-				},
-				{
-					internalType: 'address',
-					name: '_account',
-					type: 'address'
-				},
-				{
-					internalType: 'bool',
-					name: '_1ct',
-					type: 'bool'
+					"internalType": "bytes",
+					"name": "extraInfo",
+					"type": "bytes"
 				}
 			],
-			name: 'createIncreasePositionDelegate',
-			outputs: [],
-			stateMutability: 'payable',
-			type: 'function'
+			"name": "createDecreasePositionV3",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_account',
-					type: 'address'
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_productId',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_margin',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_leverage",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_leverage',
-					type: 'uint256'
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
 				},
 				{
-					internalType: 'bool',
-					name: '_isLong',
-					type: 'bool'
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_acceptablePrice',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_executionFee',
-					type: 'uint256'
-				},
-				{
-					internalType: 'bytes32',
-					name: '_referralCode',
-					type: 'bytes32'
+					"internalType": "bytes32",
+					"name": "_referralCode",
+					"type": "bytes32"
 				}
 			],
-			name: 'createIncreasePositionWithAccount',
-			outputs: [],
-			stateMutability: 'payable',
-			type: 'function'
+			"name": "createIncreasePosition",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_leverage",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "_referralCode",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
+				},
+				{
+					"internalType": "bool",
+					"name": "_1ct",
+					"type": "bool"
 				}
 			],
-			name: 'decreasePositionRequestKeys',
-			outputs: [
-				{
-					internalType: 'bytes32',
-					name: '',
-					type: 'bytes32'
-				}
-			],
-			stateMutability: 'view',
-			type: 'function'
+			"name": "createIncreasePositionDelegate",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'decreasePositionRequestKeysStart',
-			outputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_leverage",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "_referralCode",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
+				},
+				{
+					"internalType": "bool",
+					"name": "_1ct",
+					"type": "bool"
+				},
+				{
+					"internalType": "bytes",
+					"name": "extraInfo",
+					"type": "bytes"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"name": "createIncreasePositionDelegateV3",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bytes32',
-					name: '',
-					type: 'bytes32'
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_leverage",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "_referralCode",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes",
+					"name": "extraInfo",
+					"type": "bytes"
 				}
 			],
-			name: 'decreasePositionRequests',
-			outputs: [
-				{
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
-				},
-				{
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
-				},
-				{
-					internalType: 'uint256',
-					name: 'margin',
-					type: 'uint256'
-				},
-				{
-					internalType: 'bool',
-					name: 'isLong',
-					type: 'bool'
-				},
-				{
-					internalType: 'uint256',
-					name: 'acceptablePrice',
-					type: 'uint256'
-				},
-				{
-					internalType: 'uint256',
-					name: 'executionFee',
-					type: 'uint256'
-				},
-				{
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
-				},
-				{
-					internalType: 'uint256',
-					name: 'blockNumber',
-					type: 'uint256'
-				},
-				{
-					internalType: 'uint256',
-					name: 'blockTime',
-					type: 'uint256'
-				}
-			],
-			stateMutability: 'view',
-			type: 'function'
+			"name": "createIncreasePositionV3",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '',
-					type: 'address'
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_leverage",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "_referralCode",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes",
+					"name": "extraInfo",
+					"type": "bytes"
 				}
 			],
-			name: 'decreasePositionsIndex',
-			outputs: [
-				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
-				}
-			],
-			stateMutability: 'view',
-			type: 'function'
+			"name": "createIncreasePositionWithAccount",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bytes32',
-					name: '_key',
-					type: 'bytes32'
-				},
-				{
-					internalType: 'address payable',
-					name: '_executionFeeReceiver',
-					type: 'address'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			name: 'executeDecreasePosition',
-			outputs: [
+			"name": "decreasePositionRequestKeys",
+			"outputs": [
 				{
-					internalType: 'bool',
-					name: '',
-					type: 'bool'
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
 				}
 			],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [],
+			"name": "decreasePositionRequestKeysStart",
+			"outputs": [
 				{
-					internalType: 'bytes32',
-					name: '_key',
-					type: 'bytes32'
-				},
-				{
-					internalType: 'address payable',
-					name: '_executionFeeReceiver',
-					type: 'address'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			name: 'executeIncreasePosition',
-			outputs: [
-				{
-					internalType: 'bool',
-					name: '',
-					type: 'bool'
-				}
-			],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address[]',
-					name: '_tokens',
-					type: 'address[]'
-				},
-				{
-					internalType: 'uint256[]',
-					name: '_prices',
-					type: 'uint256[]'
-				},
-				{
-					internalType: 'address[]',
-					name: '_increasePositionAccounts',
-					type: 'address[]'
-				},
-				{
-					internalType: 'uint256[]',
-					name: '_increasePositionIndexes',
-					type: 'uint256[]'
-				},
-				{
-					internalType: 'address[]',
-					name: '_decreasePositionAccounts',
-					type: 'address[]'
-				},
-				{
-					internalType: 'uint256[]',
-					name: '_decreasePositionIndexes',
-					type: 'uint256[]'
-				},
-				{
-					internalType: 'address payable',
-					name: '_executionFeeReceiver',
-					type: 'address'
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
 				}
 			],
-			name: 'executePositionsWithPrices',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "decreasePositionRequests",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "margin",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isLong",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "acceptablePrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "executionFee",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "blockNumber",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "blockTime",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_account',
-					type: 'address'
-				},
-				{
-					internalType: 'uint256',
-					name: '_index',
-					type: 'uint256'
+					"internalType": "address",
+					"name": "",
+					"type": "address"
 				}
 			],
-			name: 'getDecreasePositionRequest',
-			outputs: [
+			"name": "decreasePositionsIndex",
+			"outputs": [
 				{
-					components: [
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "_key",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address payable",
+					"name": "_executionFeeReceiver",
+					"type": "address"
+				}
+			],
+			"name": "executeDecreasePosition",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				},
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "_key",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "address payable",
+					"name": "_executionFeeReceiver",
+					"type": "address"
+				}
+			],
+			"name": "executeIncreasePosition",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address[]",
+					"name": "_tokens",
+					"type": "address[]"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "_prices",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "address[]",
+					"name": "_increasePositionAccounts",
+					"type": "address[]"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "_increasePositionIndexes",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "address[]",
+					"name": "_decreasePositionAccounts",
+					"type": "address[]"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "_decreasePositionIndexes",
+					"type": "uint256[]"
+				},
+				{
+					"components": [
 						{
-							internalType: 'address',
-							name: 'account',
-							type: 'address'
+							"internalType": "address",
+							"name": "decreasePositionAccount",
+							"type": "address"
 						},
 						{
-							internalType: 'uint256',
-							name: 'productId',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "decreasePositionIndex",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'margin',
-							type: 'uint256'
-						},
-						{
-							internalType: 'bool',
-							name: 'isLong',
-							type: 'bool'
-						},
-						{
-							internalType: 'uint256',
-							name: 'acceptablePrice',
-							type: 'uint256'
-						},
-						{
-							internalType: 'uint256',
-							name: 'executionFee',
-							type: 'uint256'
-						},
-						{
-							internalType: 'uint256',
-							name: 'index',
-							type: 'uint256'
-						},
-						{
-							internalType: 'uint256',
-							name: 'blockNumber',
-							type: 'uint256'
-						},
-						{
-							internalType: 'uint256',
-							name: 'blockTime',
-							type: 'uint256'
+							"internalType": "uint256[]",
+							"name": "closedOrderIndexes",
+							"type": "uint256[]"
 						}
 					],
-					internalType: 'struct PositionRouter.DecreasePositionRequest',
-					name: '',
-					type: 'tuple'
+					"internalType": "struct PositionRouter.CloseOrdersWithoutPosition[]",
+					"name": "cancelOrders",
+					"type": "tuple[]"
+				},
+				{
+					"internalType": "address payable",
+					"name": "_executionFeeReceiver",
+					"type": "address"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"name": "executePositionsWithPricesT",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bytes32',
-					name: '_key',
-					type: 'bytes32'
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_index",
+					"type": "uint256"
 				}
 			],
-			name: 'getDecreasePositionRequestFromKey',
-			outputs: [
+			"name": "getDecreasePositionRequest",
+			"outputs": [
 				{
-					components: [
+					"components": [
 						{
-							internalType: 'address',
-							name: 'account',
-							type: 'address'
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
 						},
 						{
-							internalType: 'uint256',
-							name: 'productId',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "productId",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'margin',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "margin",
+							"type": "uint256"
 						},
 						{
-							internalType: 'bool',
-							name: 'isLong',
-							type: 'bool'
+							"internalType": "bool",
+							"name": "isLong",
+							"type": "bool"
 						},
 						{
-							internalType: 'uint256',
-							name: 'acceptablePrice',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "acceptablePrice",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'executionFee',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "executionFee",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'index',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "index",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'blockNumber',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "blockNumber",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'blockTime',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "blockTime",
+							"type": "uint256"
 						}
 					],
-					internalType: 'struct PositionRouter.DecreasePositionRequest',
-					name: '',
-					type: 'tuple'
+					"internalType": "struct PositionRouter.DecreasePositionRequest",
+					"name": "",
+					"type": "tuple"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_account',
-					type: 'address'
-				},
-				{
-					internalType: 'uint256',
-					name: '_index',
-					type: 'uint256'
+					"internalType": "bytes32",
+					"name": "_key",
+					"type": "bytes32"
 				}
 			],
-			name: 'getIncreasePositionRequest',
-			outputs: [
+			"name": "getDecreasePositionRequestFromKey",
+			"outputs": [
 				{
-					components: [
+					"components": [
 						{
-							internalType: 'address',
-							name: 'account',
-							type: 'address'
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
 						},
 						{
-							internalType: 'uint256',
-							name: 'productId',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "productId",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'margin',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "margin",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'leverage',
-							type: 'uint256'
+							"internalType": "bool",
+							"name": "isLong",
+							"type": "bool"
 						},
 						{
-							internalType: 'uint256',
-							name: 'tradeFee',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "acceptablePrice",
+							"type": "uint256"
 						},
 						{
-							internalType: 'bool',
-							name: 'isLong',
-							type: 'bool'
+							"internalType": "uint256",
+							"name": "executionFee",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'acceptablePrice',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "index",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'executionFee',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "blockNumber",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'index',
-							type: 'uint256'
-						},
-						{
-							internalType: 'uint256',
-							name: 'blockNumber',
-							type: 'uint256'
-						},
-						{
-							internalType: 'uint256',
-							name: 'blockTime',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "blockTime",
+							"type": "uint256"
 						}
 					],
-					internalType: 'struct PositionRouter.IncreasePositionRequest',
-					name: '',
-					type: 'tuple'
+					"internalType": "struct PositionRouter.DecreasePositionRequest",
+					"name": "",
+					"type": "tuple"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bytes32',
-					name: '_key',
-					type: 'bytes32'
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_index",
+					"type": "uint256"
 				}
 			],
-			name: 'getIncreasePositionRequestFromKey',
-			outputs: [
+			"name": "getIncreasePositionRequest",
+			"outputs": [
 				{
-					components: [
+					"components": [
 						{
-							internalType: 'address',
-							name: 'account',
-							type: 'address'
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
 						},
 						{
-							internalType: 'uint256',
-							name: 'productId',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "productId",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'margin',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "margin",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'leverage',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "leverage",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'tradeFee',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "tradeFee",
+							"type": "uint256"
 						},
 						{
-							internalType: 'bool',
-							name: 'isLong',
-							type: 'bool'
+							"internalType": "bool",
+							"name": "isLong",
+							"type": "bool"
 						},
 						{
-							internalType: 'uint256',
-							name: 'acceptablePrice',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "acceptablePrice",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'executionFee',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "executionFee",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'index',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "index",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'blockNumber',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "blockNumber",
+							"type": "uint256"
 						},
 						{
-							internalType: 'uint256',
-							name: 'blockTime',
-							type: 'uint256'
+							"internalType": "uint256",
+							"name": "blockTime",
+							"type": "uint256"
 						}
 					],
-					internalType: 'struct PositionRouter.IncreasePositionRequest',
-					name: '',
-					type: 'tuple'
+					"internalType": "struct PositionRouter.IncreasePositionRequest",
+					"name": "",
+					"type": "tuple"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_account',
-					type: 'address'
+					"internalType": "bytes32",
+					"name": "_key",
+					"type": "bytes32"
+				}
+			],
+			"name": "getIncreasePositionRequestFromKey",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "productId",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "margin",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "leverage",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "tradeFee",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "isLong",
+							"type": "bool"
+						},
+						{
+							"internalType": "uint256",
+							"name": "acceptablePrice",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "executionFee",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "index",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "blockNumber",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "blockTime",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct PositionRouter.IncreasePositionRequest",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
 				},
 				{
-					internalType: 'uint256',
-					name: '_index',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_index",
+					"type": "uint256"
 				}
 			],
-			name: 'getRequestKey',
-			outputs: [
+			"name": "getRequestKey",
+			"outputs": [
 				{
-					internalType: 'bytes32',
-					name: '',
-					type: 'bytes32'
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
 				}
 			],
-			stateMutability: 'pure',
-			type: 'function'
+			"stateMutability": "pure",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'getRequestQueueLengths',
-			outputs: [
+			"inputs": [],
+			"name": "getRequestQueueLengths",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'gov',
-			outputs: [
+			"inputs": [],
+			"name": "gov",
+			"outputs": [
 				{
-					internalType: 'address',
-					name: '',
-					type: 'address'
+					"internalType": "address",
+					"name": "",
+					"type": "address"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			name: 'increasePositionRequestKeys',
-			outputs: [
+			"name": "increasePositionRequestKeys",
+			"outputs": [
 				{
-					internalType: 'bytes32',
-					name: '',
-					type: 'bytes32'
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'increasePositionRequestKeysStart',
-			outputs: [
+			"inputs": [],
+			"name": "increasePositionRequestKeysStart",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bytes32',
-					name: '',
-					type: 'bytes32'
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
 				}
 			],
-			name: 'increasePositionRequests',
-			outputs: [
+			"name": "increasePositionRequests",
+			"outputs": [
 				{
-					internalType: 'address',
-					name: 'account',
-					type: 'address'
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
 				},
 				{
-					internalType: 'uint256',
-					name: 'productId',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "productId",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: 'margin',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "margin",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: 'leverage',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "leverage",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: 'tradeFee',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "tradeFee",
+					"type": "uint256"
 				},
 				{
-					internalType: 'bool',
-					name: 'isLong',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "isLong",
+					"type": "bool"
 				},
 				{
-					internalType: 'uint256',
-					name: 'acceptablePrice',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "acceptablePrice",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: 'executionFee',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "executionFee",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: 'index',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: 'blockNumber',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "blockNumber",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: 'blockTime',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "blockTime",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '',
-					type: 'address'
+					"internalType": "address",
+					"name": "",
+					"type": "address"
 				}
 			],
-			name: 'increasePositionsIndex',
-			outputs: [
+			"name": "increasePositionsIndex",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_collateralToken',
-					type: 'address'
+					"internalType": "address",
+					"name": "_orderBookAddr",
+					"type": "address"
+				}
+			],
+			"name": "initOrderBook",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_collateralToken",
+					"type": "address"
 				},
 				{
-					internalType: 'uint256',
-					name: '_minExecutionFee',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_minExecutionFee",
+					"type": "uint256"
 				},
 				{
-					internalType: 'address',
-					name: '_kiloStorageAddr',
-					type: 'address'
+					"internalType": "address",
+					"name": "_kiloStorageAddr",
+					"type": "address"
 				}
 			],
-			name: 'initialize',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "initialize",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '',
-					type: 'address'
+					"internalType": "address",
+					"name": "",
+					"type": "address"
 				}
 			],
-			name: 'isPositionKeeper',
-			outputs: [
+			"name": "isPositionKeeper",
+			"outputs": [
 				{
-					internalType: 'bool',
-					name: '',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'isUserCancelEnabled',
-			outputs: [
+			"inputs": [],
+			"name": "isUserCancelEnabled",
+			"outputs": [
 				{
-					internalType: 'bool',
-					name: '',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'isUserExecuteEnabled',
-			outputs: [
+			"inputs": [],
+			"name": "isUserExecuteEnabled",
+			"outputs": [
 				{
-					internalType: 'bool',
-					name: '',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'maxTimeDelay',
-			outputs: [
+			"inputs": [],
+			"name": "maxTimeDelay",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'minBlockDelayKeeper',
-			outputs: [
+			"inputs": [],
+			"name": "minBlockDelayKeeper",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'minExecutionFee',
-			outputs: [
+			"inputs": [],
+			"name": "minExecutionFee",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'minTimeCancelDelayPublic',
-			outputs: [
+			"inputs": [],
+			"name": "minTimeCancelDelayPublic",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'minTimeExecuteDelayPublic',
-			outputs: [
+			"inputs": [],
+			"name": "minTimeExecuteDelayPublic",
+			"outputs": [
 				{
-					internalType: 'uint256',
-					name: '',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'newGov',
-			outputs: [
+			"inputs": [],
+			"name": "newGov",
+			"outputs": [
 				{
-					internalType: 'address',
-					name: '',
-					type: 'address'
+					"internalType": "address",
+					"name": "",
+					"type": "address"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'newOwner',
-			outputs: [
+			"inputs": [],
+			"name": "newOwner",
+			"outputs": [
 				{
-					internalType: 'address',
-					name: '',
-					type: 'address'
+					"internalType": "address",
+					"name": "",
+					"type": "address"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [],
-			name: 'owner',
-			outputs: [
+			"inputs": [],
+			"name": "owner",
+			"outputs": [
 				{
-					internalType: 'address',
-					name: '',
-					type: 'address'
+					"internalType": "address",
+					"name": "",
+					"type": "address"
 				}
 			],
-			stateMutability: 'view',
-			type: 'function'
+			"stateMutability": "view",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bool',
-					name: '_allowUserCloseOnly',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "_allowUserCloseOnly",
+					"type": "bool"
 				}
 			],
-			name: 'setAllowUserCloseOnly',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setAllowUserCloseOnly",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_manager',
-					type: 'address'
+					"internalType": "address",
+					"name": "_manager",
+					"type": "address"
 				},
 				{
-					internalType: 'bool',
-					name: '_isActive',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "_isActive",
+					"type": "bool"
 				}
 			],
-			name: 'setApprovedRouter',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setApprovedRouter",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '_minBlockDelayKeeper',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_minBlockDelayKeeper",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_minTimeExecuteDelayPublic',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_minTimeExecuteDelayPublic",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_minTimeCancelDelayPublic',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_minTimeCancelDelayPublic",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_maxTimeDelay',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_maxTimeDelay",
+					"type": "uint256"
 				}
 			],
-			name: 'setDelayValues',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setDelayValues",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: 'pendingGov',
-					type: 'address'
+					"internalType": "address",
+					"name": "pendingGov",
+					"type": "address"
 				}
 			],
-			name: 'setGov',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setGov",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bool',
-					name: '_isUserCancelEnabled',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "_isUserCancelEnabled",
+					"type": "bool"
 				}
 			],
-			name: 'setIsUserCancelEnabled',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setIsUserCancelEnabled",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'bool',
-					name: '_isUserExecuteEnabled',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "_isUserExecuteEnabled",
+					"type": "bool"
 				}
 			],
-			name: 'setIsUserExecuteEnabled',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setIsUserExecuteEnabled",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '_minExecutionFee',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_minExecutionFee",
+					"type": "uint256"
 				}
 			],
-			name: 'setMinExecutionFee',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setMinExecutionFee",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_oracle',
-					type: 'address'
+					"internalType": "address",
+					"name": "_oracle",
+					"type": "address"
 				}
 			],
-			name: 'setOracle',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setOracle",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: 'pendingOwner',
-					type: 'address'
+					"internalType": "address",
+					"name": "pendingOwner",
+					"type": "address"
 				}
 			],
-			name: 'setOwner',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setOwner",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_account',
-					type: 'address'
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
 				},
 				{
-					internalType: 'bool',
-					name: '_isActive',
-					type: 'bool'
+					"internalType": "bool",
+					"name": "_isActive",
+					"type": "bool"
 				}
 			],
-			name: 'setPositionKeeper',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setPositionKeeper",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'address',
-					name: '_referralStorage',
-					type: 'address'
+					"internalType": "address",
+					"name": "_referralStorage",
+					"type": "address"
 				}
 			],
-			name: 'setReferralStorage',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setReferralStorage",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			inputs: [
+			"inputs": [
 				{
-					internalType: 'uint256',
-					name: '_increasePositionRequestKeysStart',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_increasePositionRequestKeysStart",
+					"type": "uint256"
 				},
 				{
-					internalType: 'uint256',
-					name: '_decreasePositionRequestKeysStart',
-					type: 'uint256'
+					"internalType": "uint256",
+					"name": "_decreasePositionRequestKeysStart",
+					"type": "uint256"
 				}
 			],
-			name: 'setRequestKeysStartValues',
-			outputs: [],
-			stateMutability: 'nonpayable',
-			type: 'function'
+			"name": "setRequestKeysStartValues",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
-			stateMutability: 'payable',
-			type: 'receive'
+			"stateMutability": "payable",
+			"type": "receive"
 		}
-	],
+	]
 }

@@ -175,6 +175,132 @@ export default {
 			"type": "function"
 		},
 		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_leverage",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "_referralCode",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_stopLossPrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_takeProfitPrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_account",
+					"type": "address"
+				},
+				{
+					"internalType": "bool",
+					"name": "_1ct",
+					"type": "bool"
+				},
+				{
+					"internalType": "bytes",
+					"name": "_extraInfo",
+					"type": "bytes"
+				}
+			],
+			"name": "createIncreasePositionWithCloseTriggerOrdersDelegateV3",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_productId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_margin",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_leverage",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "_isLong",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_acceptablePrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_executionFee",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "_referralCode",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_stopLossPrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_takeProfitPrice",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "_extraInfo",
+					"type": "bytes"
+				}
+			],
+			"name": "createIncreasePositionWithCloseTriggerOrdersV3",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
 			"inputs": [],
 			"name": "gov",
 			"outputs": [

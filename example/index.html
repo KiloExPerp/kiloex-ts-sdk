@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SDK Demo</title>
+  </head>
+  <body>
+    <h1>SDK Demo</h1>
+    <button id="connectButton">Connect Wallet Demo</button>
+    <button id="testButton">OPEN POSITION</button>
+    <button id="close">CLOSE POSITION</button>
+    <button id="openOrder">OPEN ORDER</button>
+    <button id="openTPSL">OPEN TP/SL</button>
+    <button id="OPENStopLoss">OPEN stopLOSS</button>
+    <button id="cancelOrder">CANCEL ORDER</button>
+    <div id="cryptoInfo"></div>
+    <script type="module">
+      import { ethers } from '../node_modules/ethers/dist/ethers.esm.js';
+
+      const connectButton = document.getElementById('connectButton');
+      const status = document.getElementById('status');
+
+      async function connectWallet() {
+        if (typeof window.ethereum !== 'undefined') {
+          try {
+            // 请求用户授权连接钱包
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const address = await signer.getAddress();
+
+            status.innerText = `Connected: ${address}`;
+          } catch (error) {
+            status.innerText = `Error: ${error.message}`;
+          }
+        } else {
+          status.innerText = 'MetaMask not found!';
+        }
+      }
+
+      connectButton.addEventListener('click', connectWallet);
+    </script>
+    <!-- 引入你 SDK 打包后的文件 -->
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

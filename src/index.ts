@@ -2,10 +2,11 @@ import { Abi, TransactionReceipt, stringToHex, erc20Abi } from 'viem';
 import { chainConfig, setActiveChainConfig, activeChainConfig, ChainId } from './config'
 import { Product, Symbols, FundingData, createApi } from './fetch'
 import BigNumber from "bignumber.js";
-import { kiloClient, kiloPublicClient, kiloWalletClient } from './client'
+import { kiloClient, kiloPublicClient, kiloWalletClient, getBrokerId } from './client'
 import perpTrade from './abi/perpTrade'
 import orderBook from './abi/orderBook'
 import kiloPerpView from './abi/kiloPerpView'
+import { utils } from 'ethers'
 import { approveMap, addressMap, gasMap, OpenType, MAX_ALLOWANCE, MIN_MARGIN } from './config/contract';
 import { big2decimal, decimal2Big } from './utils';
 
@@ -67,11 +68,11 @@ const supportedProductsByChain = (chainId: ChainId): Promise<ProductInfo[]> => {
 		request.queryIndexSymbols(),
 		request.queryKiloCache()
 	]).then((data) => {
+	
 		const productInfo: ProductInfo[] = []
 		const products = data[0]
 		const symbols = data[1]
 		const kiloCache = data[2]
-		
 		const { fundingBorrowList } = kiloCache
 	
 		products.forEach((product) => {
@@ -88,9 +89,9 @@ const supportedProductsByChain = (chainId: ChainId): Promise<ProductInfo[]> => {
 				})
 			}
 		})
+
 		return Promise.resolve(productInfo) 
 	}).catch((error) => {
-		console.error(error)
 		return Promise.reject(error)
 	})
 }
@@ -183,7 +184,6 @@ const increasePosition = async (
 		} = position
 		let hash: `0x${string}` = stringToHex('', { size: 32 })
 		const chainId = activeChainConfig.chainId
-	
 		if (margin < MIN_MARGIN) {
 			return Promise.reject('margin is invalid')
 		}
@@ -191,17 +191,23 @@ const increasePosition = async (
 		const buyPrice = new BigNumber(margin).times(leverage)
 	
 		const abi = approveMap[type].abi
-		const minExecution = await _getMinExecution(walletAddress, abi)
-		
 		const address = approveMap[type].addressName
 		const functionName = approveMap[type].increaseFunctionName
+		let minExecution = BigInt(0)
 		let acceptablePrice = new BigNumber(tickerPrice);
-		const approve = await setApprove(walletAddress, addressMap[chainId][address])
 
-		if (approve) {
-			throw Promise.reject('approve failed')
+		if (type !== OpenType.TPSL) {
+			minExecution = await _getMinExecution(addressMap[chainId][address], abi)
+		
+			
+			const approve = await setApprove(walletAddress, addressMap[chainId][address])
+
+			if (!approve) {
+				throw Promise.reject('approve failed')
+			}
 		}
 	
+		
 		if (type === OpenType.Market) {
 			if (isLong) {
 				acceptablePrice = new BigNumber(acceptablePrice).times(point).plus(acceptablePrice)
@@ -212,7 +218,7 @@ const increasePosition = async (
 			if (acceptablePrice.lte(0)) {
 				return Promise.reject('acceptable price is invalid')
 			}
-	
+		
 			const data = {
 				account: walletAddress,
 				abi: approveMap[type].abi,
@@ -226,9 +232,11 @@ const increasePosition = async (
 					big2decimal(acceptablePrice),
 					minExecution,
 					stringToHex('', { size: 32 }),
+					utils.solidityPack(['uint8'], [getBrokerId()])
 				],
 				chainId,
 				gas: gasMap[functionName],
+				value: minExecution
 			}
 	
 			const { request } = await kiloPublicClient().simulateContract(data)
@@ -249,10 +257,12 @@ const increasePosition = async (
 					big2decimal(acceptablePrice),
 					!isLong,
 					minExecution,
-					stringToHex('', { size: 32 })
+					stringToHex('', { size: 32 }),
+					utils.solidityPack(['uint8'], [getBrokerId()])
 				],
 				chainId,
 				gas: gasMap[functionName],
+				value: minExecution
 			}
 	
 			const { request } = await kiloPublicClient().simulateContract(data)
@@ -260,7 +270,23 @@ const increasePosition = async (
 		}
 	
 		if (type === OpenType.TPSL) {
-			const { stopLessPrice, takeProfitPrice } = position
+			const {
+				stopLessPrice,
+				takeProfitPrice,
+			} = position
+
+			const result = await kiloPublicClient().readContract({
+				address: addressMap[chainId][address],
+				abi: approveMap[type].abi,
+				args: [],
+				functionName: 'minExecutionFees'
+			}) as [number, number];
+
+			const [ minExecutionFee, orderBookMinExecutionFee]  = result
+			const isDoubleFee = decimal2Big(stopLessPrice).gt(0) && decimal2Big(takeProfitPrice).gt(0)
+			const limitOrderfee = decimal2Big(orderBookMinExecutionFee).times(isDoubleFee ? 2 : 1)
+			const value = big2decimal(decimal2Big(minExecutionFee).plus(limitOrderfee)).toString()
+
 			if (isLong) {
 				acceptablePrice = new BigNumber(acceptablePrice).times(point).plus(acceptablePrice)
 			} else {
@@ -282,13 +308,15 @@ const increasePosition = async (
 					big2decimal(leverage),
 					isLong,
 					big2decimal(acceptablePrice),
-					minExecution,
+					minExecutionFee,
 					stringToHex('', { size: 32 }),
 					big2decimal(stopLessPrice || 0),
-					big2decimal(takeProfitPrice || 0)
+					big2decimal(takeProfitPrice || 0),
+					utils.solidityPack(['uint8'], [getBrokerId()])
 				],
 				chainId,
 				gas: gasMap[functionName],
+				value: BigInt(value),
 			}
 
 			const { request } = await kiloPublicClient().simulateContract(data)
@@ -322,6 +350,7 @@ const increasePosition = async (
 				],
 				chainId,
 				gas: gasMap[functionName],
+				value: minExecution
 			}
 
 			const { request } = await kiloPublicClient().simulateContract(data)
@@ -355,7 +384,8 @@ const closePosition = async (walletAddress: `0x${string}`, position: IClosePosit
 	const abi = approveMap[OpenType.Market].abi
 	const address = approveMap[OpenType.Market].addressName
 	const functionName = approveMap[OpenType.Market].closeFunctionName!
-	const minExecution = await _getMinExecution(walletAddress, abi)
+
+	const minExecution = await _getMinExecution(addressMap[activeChainConfig.chainId][address], abi)
 
 	const data = {
 		account: walletAddress,
@@ -368,9 +398,11 @@ const closePosition = async (walletAddress: `0x${string}`, position: IClosePosit
 			position.isLong,
 			big2decimal(position.tickerPrice),
 			minExecution,
+			utils.solidityPack(['uint8'], [getBrokerId()])
 		],
 		chainId: activeChainConfig.chainId,
 		gas: gasMap[functionName],
+		value: minExecution
 	}
 
 	const { request } = await kiloPublicClient().simulateContract(data)
@@ -794,7 +826,7 @@ const setApprove = async (walletAddress: `0x${string}`, spender: `0x${string}`) 
 			big2decimal(MAX_ALLOWANCE, 18),
 		]
 
-		if (!allowance.lt(MAX_ALLOWANCE))  {
+		if (allowance.lt(MAX_ALLOWANCE))  {
 			const data = {
 				account: walletAddress,
 				address: kusdAddr,
@@ -803,7 +835,7 @@ const setApprove = async (walletAddress: `0x${string}`, spender: `0x${string}`) 
 				args: args,
 				gas: 100_000n
 			}
-
+			
 			const { request } = await kiloPublicClient().simulateContract(data)
 			hash = await kiloWalletClient().writeContract(request)
 
@@ -821,7 +853,6 @@ const setApprove = async (walletAddress: `0x${string}`, spender: `0x${string}`) 
 			return true
 		}
 
-		return false
 	} catch (error) {
 		throw error
 	}
@@ -846,14 +877,13 @@ function createKiloClient() {
 	return kiloClient
 }
 
-const _getMinExecution = async (walletAddress: `0x${string}`, abi: Abi) => {
+const _getMinExecution = async (walletAddress: `0x${string}`, abi: Abi): Promise<bigInt> => {
 	const minExecution = await kiloPublicClient().readContract({
 		address: walletAddress,
 		abi: abi,
 		args: [],
 		functionName: 'minExecutionFee',
 	}) as bigint
-
 	return minExecution
 }
 
@@ -868,3 +898,5 @@ export {
 	ChainId,
 	chainConfig,
 }
+
+
