@@ -2,7 +2,7 @@ import { createPublicClient, createWalletClient, http, PublicClient, fallback, W
 import { ChainId, chainConfig } from './config';
 
 interface KiloClient {
-	init: (chainId: ChainId, options: {
+	init: (chainId: ChainId, options?: {
 		env?: 'WEB' | 'NODE',
 		brokerId?: number
 	}) => void;

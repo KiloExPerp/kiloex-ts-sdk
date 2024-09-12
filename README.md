@@ -24,6 +24,8 @@ const kiloClient = create(ChainId.BSC, {
 });
 ```
 
+env In the code snippet, env is used for environment detection. node refers to the Node.js environment, while web refers to usage within a web browser.
+
 ### Functions
 
 #### Supported Chains

@@ -877,7 +877,7 @@ function createKiloClient() {
 	return kiloClient
 }
 
-const _getMinExecution = async (walletAddress: `0x${string}`, abi: Abi): Promise<bigInt> => {
+const _getMinExecution = async (walletAddress: `0x${string}`, abi: Abi): Promise<bigint> => {
 	const minExecution = await kiloPublicClient().readContract({
 		address: walletAddress,
 		abi: abi,
@@ -887,9 +887,12 @@ const _getMinExecution = async (walletAddress: `0x${string}`, abi: Abi): Promise
 	return minExecution
 }
 
-export function create(chainId: ChainId) {
+export function create(chainId: ChainId, options?: {
+	env?: 'WEB' | 'NODE',
+	brokerId?: number
+}) {
 	setActiveChainConfig(chainId)
-	kiloClient.init(chainId)
+	kiloClient.init(chainId, options)
 
 	return createKiloClient()
 }
