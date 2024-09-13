@@ -2,16 +2,15 @@
   "name": "kiloex-ts-sdk",
   "version": "1.1.0",
   "description": "KiloEx contract interaction SDK",
-  "main": "dist/index.js",
+  "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "type": "module",
   "files": [
     "dist",
     "package.json",
     "README.md"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "vite build --config vite.config.browser.ts",
     "test": "jest",
     "lint": "eslint \"src/**/*.ts\"",
     "start:demo": "ts-node example/index.ts",
@@ -33,7 +32,8 @@
     "typedoc": "^0.25.13",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.11.0",
-    "vite": "^5.4.4"
+    "vite": "^5.4.4",
+    "vite-plugin-dts": "^4.2.1"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^7.11.0",
