@@ -1,4 +1,4 @@
-import { create, ChainId } from '../src/index';
+import { create, ChainId } from '../dist/index';
 const kiloClient = create(ChainId.BSCTEST);
 
 kiloClient
