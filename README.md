@@ -176,6 +176,17 @@ const tradeHistory = await kiloClient.getTradesHistory(walletAddress);
 
 ---
 
+#### Cancel Position
+
+The order price is not within the executable price range; the margin needs to be withdrawn
+
+```javascript
+const orderIndex = 123; // Example order index
+const transactionReceipt = await kiloClient.cancelPosition(walletAddress, 'Increase', orderIndex);
+```
+
+---
+
 ### Quote and Candlestick
 
 We using pyth network as our Oracle, So you can get price and candlestick history from the pyth network, we use this too

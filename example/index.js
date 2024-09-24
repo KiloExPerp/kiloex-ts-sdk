@@ -147,3 +147,17 @@ document.getElementById('cancelOrder').addEventListener('click', () => {
       console.error('Error:', error);
     });
 });
+
+document.getElementById('cancelPosition').addEventListener('click', () => {
+  const walletAddress = '0x5710d0E011eb249E1c534A50aA58b23167761184';
+  const type = 'Increase';
+
+  kiloClient
+    .cancelPosition(walletAddress, type, 10)
+    .then(result => {
+      console.log('Result from async function:', result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
