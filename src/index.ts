@@ -9,6 +9,7 @@ import kiloPerpView from './abi/kiloPerpView'
 import { utils } from 'ethers'
 import { approveMap, addressMap, gasMap, OpenType, MAX_ALLOWANCE, MIN_MARGIN } from './config/contract';
 import { big2decimal, decimal2Big } from './utils';
+import positionRouter from './abi/positionRouter';
 
 interface chain {
 	id: ChainId,
@@ -42,6 +43,7 @@ interface KiloClient {
 	getAllOrders: (walletAddress: `0x${string}`) => Promise<IOrderInfo[]>
 	getTradesHistory: (walletAddress: `0x${string}`) => Promise<ITradeHistory[]>
 	setApprove: (walletAddress: `0x${string}`, address: `0x${string}`) => Promise<boolean>
+	cancelPosition: (walletAddress: `0x${string}`, type: 'Increase' | 'Decrease',  orderIndex: number) =>Promise<TransactionReceipt>
 }
 
 /**
@@ -858,6 +860,50 @@ const setApprove = async (walletAddress: `0x${string}`, spender: `0x${string}`) 
 	}
 }
 
+
+/**
+ * cancelPosition 
+ * @description The order price is not within the executable price range; the margin needs to be withdrawn.
+ * @param walletAddress Wallet address
+ * @param type Product limit type 'Increase' or 'Decrease'
+ * @param orderIndex Order index
+ * @returns Promise<TransactionReceipt>
+ */
+const cancelPosition = async (walletAddress: `0x${string}`, type: 'Increase' | 'Decrease', orderIndex: number) => {
+	let hash: `0x${string}` = stringToHex('', { size: 32 })
+	const abi = positionRouter.abi
+	const functionName = type === 'Increase' ? 'cancelIncreasePosition' : 'cancelDecreasePosition';
+	const address = addressMap[activeChainConfig.chainId].positionRouterAddr
+
+	const result = await kiloPublicClient().readContract({
+		address: address,
+		abi: abi,
+		args: [walletAddress, orderIndex],
+		functionName: 'getRequestKey'
+	});
+
+	const data = {
+		account: walletAddress,
+		abi: abi,
+		functionName,
+		address,
+		args: [result, walletAddress],
+		chainId: activeChainConfig.chainId,
+		gas: gasMap[functionName],
+	}
+
+
+	const { request } = await kiloPublicClient().simulateContract(data)
+	hash = await kiloWalletClient().writeContract(request)
+
+	const transactionResult = await kiloPublicClient().waitForTransactionReceipt({
+		confirmations: 1,
+		hash: hash
+	})
+
+	return transactionResult
+}
+
 function createKiloClient() {
 	const kiloClient: KiloClient = {
 		supportedChains: supportedChains,
@@ -872,7 +918,8 @@ function createKiloClient() {
 		getAllPositions: getAllPositions,
 		getAllOrders: getAllOrders,
 		getTradesHistory: getTradesHistory,
-		setApprove: setApprove
+		setApprove: setApprove,
+		cancelPosition: cancelPosition
 	}
 	return kiloClient
 }
