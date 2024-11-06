@@ -66,7 +66,7 @@ describe('Kilo Client', () => {
     
   });
   beforeAll((done) => {
-    kiloClient = create(ChainId.BSC);; 
+    kiloClient = create(ChainId.BSC, {env: 'NODE'}); 
     done(); 
   });
 
