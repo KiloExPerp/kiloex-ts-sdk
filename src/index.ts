@@ -135,6 +135,8 @@ const getProductPrices = async (productIds: number[]): Promise<PriceInfo[]> => {
 				previousPrices: previous
 			}
 		})
+
+		console.log('getProductPrices result:', JSON.stringify(productPrices))
 		
 		return productPrices
 	} catch (error) {
@@ -241,6 +243,11 @@ const increasePosition = async (
 				value: minExecution
 			}
 	
+			console.log('Market: increasePosition params: ', JSON.stringify({walletAddress, type, ...position}))
+			console.log('Market: increasePosition contract params: ', JSON.stringify({...data, abi: ''}, (key, value) =>
+				typeof value === 'bigint' ? value.toString() : value
+			))
+
 			const { request } = await kiloPublicClient().simulateContract(data)
 			hash = await kiloWalletClient().writeContract(request)
 		}
@@ -266,6 +273,11 @@ const increasePosition = async (
 				gas: gasMap[functionName],
 				value: minExecution
 			}
+
+			console.log('Limit: increasePosition params: ', JSON.stringify({walletAddress, type, ...position}))
+			console.log('Limit: increasePosition contract params: ', JSON.stringify({...data, abi: ''}, (key, value) =>
+				typeof value === 'bigint' ? value.toString() : value
+			))
 	
 			const { request } = await kiloPublicClient().simulateContract(data)
 			hash = await kiloWalletClient().writeContract(request)
@@ -321,6 +333,11 @@ const increasePosition = async (
 				value: BigInt(value),
 			}
 
+			console.log('Market+TPSL: increasePosition params: ', JSON.stringify({walletAddress, type, ...position}))
+			console.log('Market+TPSL: increasePosition contract params: ', JSON.stringify({...data, abi: ''}, (key, value) =>
+				typeof value === 'bigint' ? value.toString() : value
+			))
+
 			const { request } = await kiloPublicClient().simulateContract(data)
 			hash = await kiloWalletClient().writeContract(request)
 		}
@@ -354,6 +371,11 @@ const increasePosition = async (
 				gas: gasMap[functionName],
 				value: minExecution
 			}
+
+			console.log('StopLoss/TakeProfit params: ', JSON.stringify({walletAddress, type, ...position}))
+			console.log('StopLoss/TakeProfit contract params: ', JSON.stringify({...data, abi: ''}, (key, value) =>
+				typeof value === 'bigint' ? value.toString() : value
+			))
 
 			const { request } = await kiloPublicClient().simulateContract(data)
 			hash = await kiloWalletClient().writeContract(request)
