@@ -9,6 +9,7 @@
         "declaration": true,
         "forceConsistentCasingInFileNames": true,
         "esModuleInterop": true,
+        "removeComments": false,
     },
     "include": ["src/**/*", "demo/**/*"],
     "exclude": ["node_modules", "dist"] 
