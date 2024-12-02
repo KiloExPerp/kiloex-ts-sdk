@@ -461,7 +461,7 @@ const updatePositionMargin = async (walletAddress: `0x${string}`, position: IUpd
 		account: walletAddress,
 		abi: abi,
 		functionName,
-		address: addressMap[activeChainConfig.chainId].positionRouterAddr,
+		address: addressMap[activeChainConfig.chainId].perpTradeAddr,
 		args: [
 			position.productId,
 			position.isLong,
