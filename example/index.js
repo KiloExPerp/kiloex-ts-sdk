@@ -26,10 +26,10 @@ kiloClient
   .catch(err => {});
 
 document.getElementById('testButton').addEventListener('click', () => {
-  const walletAddress = '0x0';
+  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
   const type = 1;
   const position = {
-    tickerPrice: '0.356084',
+    tickerPrice: '1.192',
     productId: 9,
     leverage: 2,
     isLong: true,
@@ -112,16 +112,39 @@ document.getElementById('openTPSL').addEventListener('click', () => {
 });
 
 document.getElementById('OPENStopLoss').addEventListener('click', () => {
-  const walletAddress = '0x0';
-  const type = 3;
+  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const type = 4; // 止损
   const position = {
-    tickerPrice: '0.356084',
-    productId: 9,
+    tickerPrice: '1', //止损价
+    productId: 9, 
     leverage: 2,
     isLong: true,
     margin: 50,
     point: 0.05,
-    OPENStopLoss: 0.8898
+    entryPrice: '1.2' //买入价
+  };
+
+  kiloClient
+    .increasePosition(walletAddress, type, position)
+    .then(result => {
+      console.log('Result from async function:', result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
+document.getElementById('OPENTakeProfit').addEventListener('click', () => {
+  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const type = 5; // 止盈
+  const position = {
+    tickerPrice: '2', //止损价
+    productId: 9, 
+    leverage: 2,
+    isLong: true,
+    margin: 50,
+    point: 0.05,
+    entryPrice: '1.2' //买入价
   };
 
   kiloClient
@@ -154,6 +177,26 @@ document.getElementById('cancelPosition').addEventListener('click', () => {
 
   kiloClient
     .cancelPosition(walletAddress, type, 10)
+    .then(result => {
+      console.log('Result from async function:', result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
+document.getElementById('updateOrder').addEventListener('click', () => {
+  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const updateData = {
+    orderIndex: 62, // order index 不是 productId
+    margin: 50,
+    leverage: 2,
+    limitPrice: 0.9,
+    type: 'STOP_LOSS' // 'STOP_LOSS | TAKE_PROFIT'
+  };
+
+  kiloClient
+    .updateOrder(walletAddress, updateData)
     .then(result => {
       console.log('Result from async function:', result);
     })

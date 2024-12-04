@@ -355,6 +355,8 @@ const increasePosition = async (
 				triggerAboveThreshold = false
 			}
 
+			const size = new BigNumber(margin).times(leverage)
+
 			const data = {
 				account: walletAddress,
 				abi: approveMap[type].abi,
@@ -362,10 +364,12 @@ const increasePosition = async (
 				address: addressMap[chainId][address],
 				args: [
 					productId,
-					big2decimal(buyPrice.toFixed(7, 0)).toString(),
+					big2decimal(size.toFixed(7, 0)).toString(),
 					isLong,
 					big2decimal(tickerPrice),
-					triggerAboveThreshold
+					triggerAboveThreshold,
+					minExecution,
+					utils.solidityPack(['uint8'], [getBrokerId()])
 				],
 				chainId,
 				gas: gasMap[functionName],
@@ -521,7 +525,8 @@ type orderType = 'STOP_LOSS' | 'TAKE_PROFIT'
 
 interface IUpdateOrder {
 	orderIndex: number
-	size: number
+	margin: number,
+	leverage: number,
 	limitPrice: number
 	type: orderType
 }
@@ -531,7 +536,8 @@ interface IUpdateOrder {
  * @param walletAddress 
  * @param updateData
  * @param updateData.orderIndex
- * @param updateData.size Quantity to buy or sell
+ * @param updateData.margin Quantity to buy or sell
+ * @param updateData.leverage Quantity to buy or sell
  * @param updateData.limitPrice Limit order price 
  * @param updateData.type update order type 'STOP_LOSS' | 'TAKE_PROFIT'
  * @returns Promise<TransactionReceipt>
@@ -541,7 +547,8 @@ const updateOrder = async (walletAddress: `0x${string}`, updateData: IUpdateOrde
 	const abi = orderBook.abi
 	const functionName = 'updateDecreaseOrder'
 	const address = addressMap[activeChainConfig.chainId].orderBookAddr
-	const { orderIndex, size, limitPrice, type } = updateData
+	const { orderIndex, margin, leverage, limitPrice, type } = updateData
+	const size = new BigNumber(margin).times(leverage)
 
 	const data = {
 		account: walletAddress,
@@ -560,6 +567,11 @@ const updateOrder = async (walletAddress: `0x${string}`, updateData: IUpdateOrde
 	
 	const { request } = await kiloPublicClient().simulateContract(data)
 	hash = await kiloWalletClient().writeContract(request)
+
+	console.log('update StopLoss/TakeProfit params: ', JSON.stringify({walletAddress, ...updateData}))
+	console.log('updateOrder StopLoss/TakeProfit contract params: ', JSON.stringify({...data, abi: ''}, (key, value) =>
+		typeof value === 'bigint' ? value.toString() : value
+	))
 
 	const transactionResult = await kiloPublicClient().waitForTransactionReceipt({
 		confirmations: 1,
