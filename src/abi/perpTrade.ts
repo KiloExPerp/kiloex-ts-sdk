@@ -1,814 +1,237 @@
 export default {
 	abi: [
     {
-      inputs: [],
-      stateMutability: 'nonpayable',
-      type: 'constructor'
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'positionId',
-          type: 'uint256'
-        },
-        {
-          indexed: true,
-          internalType: 'address',
-          name: 'user',
-          type: 'address'
-        },
-        {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'productId',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'price',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'entryPrice',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'margin',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'leverage',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'fee',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'int256',
-          name: 'pnl',
-          type: 'int256'
-        },
-        {
-          indexed: false,
-          internalType: 'int256',
-          name: 'fundingPayment',
-          type: 'int256'
-        },
-        {
-          indexed: false,
-          internalType: 'bool',
-          name: 'wasLiquidated',
-          type: 'bool'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'orderType',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'borrowingFee',
-          type: 'uint256'
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "version",
+          "type": "uint8"
         }
       ],
-      name: 'DecreasePosition',
-      type: 'event'
+      "name": "Initialized",
+      "type": "event"
     },
     {
-      anonymous: false,
-      inputs: [
+      "inputs": [
         {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'positionId',
-          type: 'uint256'
+          "internalType": "uint256",
+          "name": "productId",
+          "type": "uint256"
         },
         {
-          indexed: true,
-          internalType: 'address',
-          name: 'liquidator',
-          type: 'address'
+          "internalType": "bool",
+          "name": "isLong",
+          "type": "bool"
         },
         {
-          indexed: false,
-          internalType: 'string',
-          name: 'executionError',
-          type: 'string'
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isOpen",
+          "type": "bool"
         }
       ],
-      name: 'ExecuteLiquidateError',
-      type: 'event'
+      "name": "calculateSpread",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      anonymous: false,
-      inputs: [
+      "inputs": [
         {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'positionId',
-          type: 'uint256'
-        },
-        {
-          indexed: true,
-          internalType: 'address',
-          name: 'user',
-          type: 'address'
-        },
-        {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'productId',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'bool',
-          name: 'isLong',
-          type: 'bool'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'price',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'oraclePrice',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'margin',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'leverage',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'fee',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'int256',
-          name: 'funding',
-          type: 'int256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'orderType',
-          type: 'uint256'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'borrowing',
-          type: 'uint256'
+          "internalType": "uint256[]",
+          "name": "ids",
+          "type": "uint256[]"
         }
       ],
-      name: 'IncreasePosition',
-      type: 'event'
+      "name": "getFundings",
+      "outputs": [
+        {
+          "internalType": "int256[]",
+          "name": "fundingRates",
+          "type": "int256[]"
+        },
+        {
+          "internalType": "int256[]",
+          "name": "cumulativeFundings",
+          "type": "int256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      anonymous: false,
-      inputs: [
+      "inputs": [
         {
-          indexed: false,
-          internalType: 'uint8',
-          name: 'version',
-          type: 'uint8'
+          "internalType": "uint256[]",
+          "name": "ids",
+          "type": "uint256[]"
         }
       ],
-      name: 'Initialized',
-      type: 'event'
-    },
-    {
-      anonymous: false,
-      inputs: [
+      "name": "getMaxOpens",
+      "outputs": [
         {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'positionId',
-          type: 'uint256'
+          "internalType": "uint256[]",
+          "name": "maxOpenForLong",
+          "type": "uint256[]"
         },
         {
-          indexed: true,
-          internalType: 'address',
-          name: 'user',
-          type: 'address'
+          "internalType": "uint256[]",
+          "name": "maxOpenForShort",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
         },
         {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'addedMargin',
-          type: 'uint256'
+          "internalType": "uint256[]",
+          "name": "ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "getPositions",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "productId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "leverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "oraclePrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "margin",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "isLong",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "funding",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "borrowing",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct PerpTradeReader.Position[]",
+          "name": "positions",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_kiloStorageAddr",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "productSummary",
+      "outputs": [
+        {
+          "internalType": "int256[]",
+          "name": "fundingRates",
+          "type": "int256[]"
         },
         {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'newMargin',
-          type: 'uint256'
+          "internalType": "uint256[]",
+          "name": "maxOpenForLong",
+          "type": "uint256[]"
         },
         {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'newLeverage',
-          type: 'uint256'
-        }
-      ],
-      name: 'MarginAdded',
-      type: 'event'
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: true,
-          internalType: 'uint256',
-          name: 'positionId',
-          type: 'uint256'
+          "internalType": "uint256[]",
+          "name": "maxOpenForShort",
+          "type": "uint256[]"
         },
         {
-          indexed: true,
-          internalType: 'address',
-          name: 'liquidator',
-          type: 'address'
+          "internalType": "bool[]",
+          "name": "isActives",
+          "type": "bool[]"
         },
         {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'liquidatorReward',
-          type: 'uint256'
+          "internalType": "uint256[]",
+          "name": "openInterestLongs",
+          "type": "uint256[]"
         },
         {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'remainingReward',
-          type: 'uint256'
+          "internalType": "uint256[]",
+          "name": "openInterestShorts",
+          "type": "uint256[]"
         }
       ],
-      name: 'PositionLiquidated',
-      type: 'event'
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: false,
-          internalType: 'address',
-          name: 'gov',
-          type: 'address'
-        }
-      ],
-      name: 'SetGov',
-      type: 'event'
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: false,
-          internalType: 'address',
-          name: 'owner',
-          type: 'address'
-        }
-      ],
-      name: 'SetOwner',
-      type: 'event'
-    },
-    {
-      inputs: [],
-      name: 'acceptGov',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'acceptOwner',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'productId',
-          type: 'uint256'
-        },
-        {
-          internalType: 'bool',
-          name: 'isLong',
-          type: 'bool'
-        },
-        {
-          internalType: 'uint256',
-          name: 'addedMargin',
-          type: 'uint256'
-        }
-      ],
-      name: 'addMargin',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'productId',
-          type: 'uint256'
-        },
-        {
-          internalType: 'bool',
-          name: 'isLong',
-          type: 'bool'
-        },
-        {
-          internalType: 'uint256',
-          name: 'addedMargin',
-          type: 'uint256'
-        },
-        {
-          internalType: 'address',
-          name: 'user',
-          type: 'address'
-        },
-        {
-          internalType: 'bool',
-          name: '_1ct',
-          type: 'bool'
-        }
-      ],
-      name: 'addMarginDelegate',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'positionId',
-          type: 'uint256'
-        },
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        },
-        {
-          internalType: 'address[]',
-          name: 'tokens',
-          type: 'address[]'
-        },
-        {
-          internalType: 'uint256[]',
-          name: 'prices',
-          type: 'uint256[]'
-        }
-      ],
-      name: 'adlDecreasePosition',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      name: 'approvedRouters',
-      outputs: [
-        {
-          internalType: 'bool',
-          name: '',
-          type: 'bool'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'user',
-          type: 'address'
-        },
-        {
-          internalType: 'uint256',
-          name: 'productId',
-          type: 'uint256'
-        },
-        {
-          internalType: 'uint256',
-          name: 'margin',
-          type: 'uint256'
-        },
-        {
-          internalType: 'bool',
-          name: 'isLong',
-          type: 'bool'
-        },
-        {
-          internalType: 'uint256',
-          name: 'orderType',
-          type: 'uint256'
-        }
-      ],
-      name: 'decreasePosition',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'productWeight',
-          type: 'uint256'
-        }
-      ],
-      name: 'getMaxExposure',
-      outputs: [
-        {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'account',
-          type: 'address'
-        },
-        {
-          internalType: 'uint256',
-          name: 'productId',
-          type: 'uint256'
-        },
-        {
-          internalType: 'bool',
-          name: 'isLong',
-          type: 'bool'
-        }
-      ],
-      name: 'getPositionId',
-      outputs: [
-        {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256'
-        }
-      ],
-      stateMutability: 'pure',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'gov',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'user',
-          type: 'address'
-        },
-        {
-          internalType: 'uint256',
-          name: 'productId',
-          type: 'uint256'
-        },
-        {
-          internalType: 'uint256',
-          name: 'margin',
-          type: 'uint256'
-        },
-        {
-          internalType: 'bool',
-          name: 'isLong',
-          type: 'bool'
-        },
-        {
-          internalType: 'uint256',
-          name: 'leverage',
-          type: 'uint256'
-        },
-        {
-          internalType: 'uint256',
-          name: 'orderType',
-          type: 'uint256'
-        }
-      ],
-      name: 'increasePosition',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: '_kiloStorageAddr',
-          type: 'address'
-        }
-      ],
-      name: 'initialize',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address[]',
-          name: 'tokens',
-          type: 'address[]'
-        },
-        {
-          internalType: 'uint256[]',
-          name: 'prices',
-          type: 'uint256[]'
-        },
-        {
-          internalType: 'uint256[]',
-          name: 'positionIds',
-          type: 'uint256[]'
-        }
-      ],
-      name: 'liquidatePositionsWithPrices',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      name: 'liquidators',
-      outputs: [
-        {
-          internalType: 'bool',
-          name: '',
-          type: 'bool'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'marginFeeManager',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'newGov',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'newOwner',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'oracle',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'owner',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'pendingReward',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'productManager',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: '_manager',
-          type: 'address'
-        },
-        {
-          internalType: 'bool',
-          name: '_isActive',
-          type: 'bool'
-        }
-      ],
-      name: 'setApprovedRouter',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'pendingGov',
-          type: 'address'
-        }
-      ],
-      name: 'setGov',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: '_liquidator',
-          type: 'address'
-        },
-        {
-          internalType: 'bool',
-          name: '_isActive',
-          type: 'bool'
-        }
-      ],
-      name: 'setLiquidator',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: '_marginFeeManager',
-          type: 'address'
-        }
-      ],
-      name: 'setMarginFeeManager',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: '_oracle',
-          type: 'address'
-        }
-      ],
-      name: 'setOracle',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: 'pendingOwner',
-          type: 'address'
-        }
-      ],
-      name: 'setOwner',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [
-        {
-          internalType: 'address',
-          name: '_vaultStakeReward',
-          type: 'address'
-        }
-      ],
-      name: 'setVaultStakeReward',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
-    },
-    {
-      inputs: [],
-      name: 'vaultStakeReward',
-      outputs: [
-        {
-          internalType: 'address',
-          name: '',
-          type: 'address'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
 }

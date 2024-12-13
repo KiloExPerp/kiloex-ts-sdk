@@ -1,11 +1,6 @@
 export default {
 	abi: [
     {
-      "inputs": [],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
       "anonymous": false,
       "inputs": [
         {
@@ -177,15 +172,9 @@ export default {
           "internalType": "uint256",
           "name": "executionFee",
           "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bytes",
-          "name": "extraInfo",
-          "type": "bytes"
         }
       ],
-      "name": "CreateDecreaseOrderV3",
+      "name": "CreateDecreaseOrder",
       "type": "event"
     },
     {
@@ -250,15 +239,9 @@ export default {
           "internalType": "uint256",
           "name": "executionFee",
           "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bytes",
-          "name": "extraInfo",
-          "type": "bytes"
         }
       ],
-      "name": "CreateIncreaseOrderV3",
+      "name": "CreateIncreaseOrder",
       "type": "event"
     },
     {
@@ -653,6 +636,23 @@ export default {
       "type": "event"
     },
     {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "EXECUTE_FEE_CAP",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [],
       "name": "acceptGov",
       "outputs": [],
@@ -664,6 +664,25 @@ export default {
       "name": "acceptOwner",
       "outputs": [],
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "accountOrderSize",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -685,73 +704,9 @@ export default {
           "internalType": "uint256",
           "name": "_orderIndex",
           "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
-        }
-      ],
-      "name": "cancelDecreaseOrderDelegate",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address[]",
-          "name": "_accounts",
-          "type": "address[]"
-        },
-        {
-          "internalType": "uint256[]",
-          "name": "_decreaseOrderIndexes",
-          "type": "uint256[]"
-        }
-      ],
-      "name": "cancelDecreaseOrderMultiple",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
         }
       ],
       "name": "cancelIncreaseOrder",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
-        }
-      ],
-      "name": "cancelIncreaseOrderDelegate",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -767,37 +722,9 @@ export default {
           "internalType": "uint256[]",
           "name": "_decreaseOrderIndexes",
           "type": "uint256[]"
-        },
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
         }
       ],
       "name": "cancelMultiple",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
-        }
-      ],
-      "name": "cancelNoPositionDecreaseOrderWithAccount",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -836,198 +763,6 @@ export default {
         }
       ],
       "name": "createDecreaseOrder",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_size",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
-        }
-      ],
-      "name": "createDecreaseOrderDelegate",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_size",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
-        },
-        {
-          "internalType": "bytes",
-          "name": "_extraInfo",
-          "type": "bytes"
-        }
-      ],
-      "name": "createDecreaseOrderDelegateV3",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_size",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes",
-          "name": "_extraInfo",
-          "type": "bytes"
-        }
-      ],
-      "name": "createDecreaseOrderV3",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_size",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes",
-          "name": "_extraInfo",
-          "type": "bytes"
-        }
-      ],
-      "name": "createDecreaseOrderWithAccount",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
@@ -1083,175 +818,74 @@ export default {
     {
       "inputs": [
         {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_margin",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_leverage",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "_referralCode",
-          "type": "bytes32"
-        },
-        {
           "internalType": "address",
-          "name": "_account",
+          "name": "",
           "type": "address"
         },
         {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
-      "name": "createIncreaseOrderDelegate",
-      "outputs": [],
-      "stateMutability": "payable",
+      "name": "decreaseOrders",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "productId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "size",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isLong",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "triggerPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "triggerAboveThreshold",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "executionFee",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
         {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_margin",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_leverage",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "_referralCode",
-          "type": "bytes32"
-        },
-        {
           "internalType": "address",
-          "name": "_account",
+          "name": "",
           "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
-        },
-        {
-          "internalType": "bytes",
-          "name": "_extraInfo",
-          "type": "bytes"
         }
       ],
-      "name": "createIncreaseOrderDelegateV3",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
+      "name": "decreaseOrdersIndex",
+      "outputs": [
         {
           "internalType": "uint256",
-          "name": "_productId",
+          "name": "",
           "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_margin",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_leverage",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "_referralCode",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "bytes",
-          "name": "_extraInfo",
-          "type": "bytes"
         }
       ],
-      "name": "createIncreaseOrderV3",
-      "outputs": [],
-      "stateMutability": "payable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -1377,6 +1011,109 @@ export default {
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_orderIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "getDecreaseOrder",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "productId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "size",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isLong",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "triggerPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "triggerAboveThreshold",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "executionFee",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_orderIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "getIncreaseOrder",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "productId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "margin",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "leverage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isLong",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "triggerPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "triggerAboveThreshold",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "executionFee",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [],
       "name": "gov",
       "outputs": [
@@ -1384,6 +1121,89 @@ export default {
           "internalType": "address",
           "name": "",
           "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "increaseOrders",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "productId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "margin",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "leverage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tradeFee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isLong",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "triggerPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "triggerAboveThreshold",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "executionFee",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "increaseOrdersIndex",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -1481,24 +1301,6 @@ export default {
         }
       ],
       "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_manager",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isActive",
-          "type": "bool"
-        }
-      ],
-      "name": "setApprovedRouter",
-      "outputs": [],
-      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -1634,44 +1436,6 @@ export default {
         },
         {
           "internalType": "uint256",
-          "name": "_size",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
-        }
-      ],
-      "name": "updateDecreaseOrderDelegate",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
           "name": "_leverage",
           "type": "uint256"
         },
@@ -1687,44 +1451,6 @@ export default {
         }
       ],
       "name": "updateIncreaseOrder",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_leverage",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
-        },
-        {
-          "internalType": "bool",
-          "name": "_1ct",
-          "type": "bool"
-        }
-      ],
-      "name": "updateIncreaseOrderDelegate",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
