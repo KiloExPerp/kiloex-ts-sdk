@@ -1,5 +1,6 @@
 import positionRouter from '../abi/positionRouter'
 import orderBook from '../abi/orderBook'
+import kiloPerpView from '../abi/kiloPerpView'
 import marketOrderWithTriggerOrder from '../abi/marketOrderWithTriggerOrder'
 import { ChainId } from '.'
 import BigNumber from 'bignumber.js'
@@ -62,7 +63,8 @@ export enum OpenType {
   Limit = 2,
   TPSL = 3,
   StopLoss = 4,
-  TakeProfit = 5
+  TakeProfit = 5,
+  Position = 6,
 }
 
 export const approveMap: {
@@ -100,6 +102,11 @@ export const approveMap: {
     abi: orderBook.abi,
 		addressName: 'orderBookAddr',
     increaseFunctionName: 'createDecreaseOrderV3',
+  },
+  [OpenType.Position]: {
+    abi: kiloPerpView.abi,
+		addressName: 'kiloPerpViewAddr',
+    increaseFunctionName: 'getPositions',
   },
 }
 

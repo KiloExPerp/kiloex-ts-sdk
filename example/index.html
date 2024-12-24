@@ -7,6 +7,9 @@
   </head>
   <body>
     <h1>SDK Demo</h1>
+    <div>
+      <input id="walletAddress" type="text" placeholder="Enter wallet address" />
+    </div>
     <button id="connectButton">Connect Wallet Demo</button>
     <button id="testButton">OPEN POSITION</button>
     <button id="close">CLOSE POSITION</button>
@@ -17,8 +20,10 @@
     <button id="cancelOrder">CANCEL ORDER</button>
     <button id="cancelPosition">CANCEL POSITION</button>
     <button id="updateOrder">UPDATE TP/SL POSITION</button>
+    <button id="getPositionList">GET POSITION LIST</button>
     
     <div id="cryptoInfo"></div>
+    <div id="positionList"></div>
     <script type="module">
       import { ethers } from '../node_modules/ethers/dist/ethers.esm.js';
 

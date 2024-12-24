@@ -137,3 +137,75 @@ export function getLiquidationPrice({
   }
   return new Big(liqPrice).lte(0) ? '0' : liqPrice
 }
+
+const getProductInfo = (item: any, kiloCache: any): {
+  marketPrice: string | number,
+  cumulativeFunding: number,
+  cumulativeBorrowing: number,
+  liquidationThreshold: number
+} => {
+  const liquidationThreshold = kiloCache?.kiloConfig?.liquidationThreshold || '0'
+  const { cumulativeFunding, cumulativeBorrowing } = (kiloCache?.fundingBorrowList || []).find(
+    (row: any) => row.productId == item.productId
+  ) || {}
+
+  return {
+    marketPrice: item.oraclePrice || 0,
+    cumulativeFunding: decimal2Big(cumulativeFunding || 0, 12).toNumber(),
+    cumulativeBorrowing: decimal2Big(cumulativeBorrowing || 0, 12).toNumber(),
+    liquidationThreshold:  decimal2Big(liquidationThreshold, 0).toNumber(),
+  }
+}
+
+export const formatPositions = (data: any[] = [], kiloCache: any) => {
+  const positionList: any[] = []
+  data.forEach(item => {
+    if (decimal2Big(item.margin).gt(0)) {
+      const productId = Number(item.productId)
+      const funding = decimal2Big(item.funding, 12).toString()
+      const margin = decimal2Big(item.margin).toString()
+      const price = decimal2Big(item.price).toString()
+      const oraclePrice = decimal2Big(item.oraclePrice).toString()
+      const leverage = decimal2Big(item.leverage).toString()
+      const list = {
+        productId: productId,
+        size: decimal2Big(item.leverage * item.margin, 8 * 2).toString(),
+        leverage,
+        isLong: item.isLong,
+        funding,
+        margin,
+        price,
+        oraclePrice,
+        timestamp: Number(item.timestamp),
+        borrowing: decimal2Big(item.borrowing).toNumber(),
+        isLoading: item.isLoading || false
+      }
+      const productinfo = getProductInfo(list, kiloCache)
+
+      const pnl = getPnl({
+        isLong: item.isLong,
+        leverage: Number(leverage),
+        margin: Number(margin),
+        price: Number(price),
+        pnl: item.pnl,
+        productPrice: Number(oraclePrice),
+        histioryOrder: false
+      })
+
+      const getLiqPrice = getLiquidationPrice({
+        isLong: item.isLong,
+        leverage: Number(leverage),
+        margin: Number(margin),
+        price: Number(price),
+        funding: funding,
+        borrowing: list.borrowing,
+        cumulativeFunding: productinfo.cumulativeFunding,
+        cumulativeBorrowing: productinfo.cumulativeBorrowing,
+        liquidationThreshold: productinfo.liquidationThreshold
+      })
+
+      positionList.push({ ...list, pnl, liqPrice: getLiqPrice })
+    }
+  })
+  return positionList
+}

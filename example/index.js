@@ -25,11 +25,18 @@ kiloClient
   })
   .catch(err => {});
 
+
+const getAccount = () => {
+  const walletAddress = document.getElementById('walletAddress')
+  return walletAddress.value
+}
+
 document.getElementById('testButton').addEventListener('click', () => {
-  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const walletAddress = getAccount()
+  // const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
   const type = 1;
   const position = {
-    tickerPrice: '1.192',
+    tickerPrice: '0.8983',
     productId: 9,
     leverage: 2,
     isLong: true,
@@ -48,10 +55,10 @@ document.getElementById('testButton').addEventListener('click', () => {
 });
 
 document.getElementById('close').addEventListener('click', () => {
-  const walletAddress = '0x0';
+  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
   const position = {
     productId: 9,
-    margin: 30,
+    margin: 50,
     isLong: true,
     tickerPrice: '0.356084'
   };
@@ -204,3 +211,19 @@ document.getElementById('updateOrder').addEventListener('click', () => {
       console.error('Error:', error);
     });
 });
+
+document.getElementById('getPositionList').addEventListener('click', () => {
+  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const ids = [1, 2, 9]; // productIds
+
+  kiloClient
+    .getPositionList(walletAddress, ids)
+    .then(result => {
+      console.log('Result from async function:', result);
+      document.getElementById('positionList').innerText = JSON.stringify(result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+

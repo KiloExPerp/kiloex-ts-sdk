@@ -8,7 +8,7 @@ import orderBook from './abi/orderBook'
 import kiloPerpView from './abi/kiloPerpView'
 import { utils } from 'ethers'
 import { approveMap, addressMap, gasMap, OpenType, MAX_ALLOWANCE, MIN_MARGIN } from './config/contract';
-import { big2decimal, decimal2Big } from './utils';
+import { big2decimal, decimal2Big, formatPositions } from './utils';
 import positionRouter from './abi/positionRouter';
 
 interface chain {
@@ -24,6 +24,27 @@ export interface PriceInfo {
 	id: number
 	currentPrices: string
 	previousPrices: string
+}
+
+export interface PositionListInfo {
+	productId: number
+	size: string,
+	leverage: number,
+	isLong: boolean,
+	funding: string,
+	margin: string,
+	price: string,
+	oraclePrice: string,
+	timestamp: number,
+	borrowing: string,
+	isLoading: boolean,
+	pnl: {
+		pnl: string,
+		change: string,
+		marginRatio: string,
+		type: string
+	},
+	liqPrice: string
 }
 
 /**
@@ -44,6 +65,7 @@ interface KiloClient {
 	getTradesHistory: (walletAddress: `0x${string}`) => Promise<ITradeHistory[]>
 	setApprove: (walletAddress: `0x${string}`, address: `0x${string}`) => Promise<boolean>
 	cancelPosition: (walletAddress: `0x${string}`, type: 'Increase' | 'Decrease',  orderIndex: number) =>Promise<TransactionReceipt>
+	getPositionList: (walletAddress: `0x${string}`, ids: number[]) => Promise<PositionListInfo[]>
 }
 
 /**
@@ -938,6 +960,40 @@ const cancelPosition = async (walletAddress: `0x${string}`, type: 'Increase' | '
 	return transactionResult
 }
 
+
+/**
+ * get position list
+ * @param walletAddress Wallet address
+ * @param ids Product ids
+ * @returns Promise<PositionListInfo>
+ */
+const getPositionList = async (walletAddress: `0x${string}`, ids: number[]) => {
+	let hash: `0x${string}` = stringToHex('', { size: 32 })
+	const abi = approveMap[OpenType.Position].abi
+	const address = approveMap[OpenType.Position].addressName
+	const functionName = approveMap[OpenType.Position].increaseFunctionName!
+
+	const data = {
+		abi: abi,
+		address: addressMap[activeChainConfig.chainId][address],
+		functionName,
+		chainId: activeChainConfig.chainId,
+		args: [
+			walletAddress,
+			ids
+		]
+	}
+	
+	const result = await kiloPublicClient().readContract(data) as any;
+
+	const request = createApi(activeChainConfig.chainId)
+	const kiloCache = await request.queryKiloCache()
+
+	const positions: PositionListInfo[] = formatPositions(result, kiloCache)
+
+	return positions
+}
+
 function createKiloClient() {
 	const kiloClient: KiloClient = {
 		supportedChains: supportedChains,
@@ -953,7 +1009,8 @@ function createKiloClient() {
 		getAllOrders: getAllOrders,
 		getTradesHistory: getTradesHistory,
 		setApprove: setApprove,
-		cancelPosition: cancelPosition
+		cancelPosition: cancelPosition,
+		getPositionList: getPositionList,
 	}
 	return kiloClient
 }
