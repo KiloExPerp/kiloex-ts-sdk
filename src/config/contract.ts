@@ -111,4 +111,4 @@ export const approveMap: {
 }
 
 export const MAX_ALLOWANCE: BigNumber = new BigNumber('115792089237316195423570985008687907853269984665640564039457.584007913129639935');
-export const MIN_MARGIN = 10;
+export const MIN_MARGIN = 1;
