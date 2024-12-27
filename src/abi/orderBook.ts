@@ -1,1497 +1,1771 @@
 export default {
-	abi: [
+	abi:  [
     {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "size",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
-        }
-      ],
-      "name": "CancelDecreaseOrder",
-      "type": "event"
+      inputs: [],
+      stateMutability: 'nonpayable',
+      type: 'constructor'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'productId',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "margin",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'size',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "leverage",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'bool',
+          name: 'isLong',
+          type: 'bool'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tradeFee",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'triggerPrice',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
+          indexed: false,
+          internalType: 'bool',
+          name: 'triggerAboveThreshold',
+          type: 'bool'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'executionFee',
+          type: 'uint256'
         }
       ],
-      "name": "CancelIncreaseOrder",
-      "type": "event"
+      name: 'CancelDecreaseOrder',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'productId',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "size",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'margin',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'leverage',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'tradeFee',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
+          indexed: false,
+          internalType: 'bool',
+          name: 'isLong',
+          type: 'bool'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'triggerPrice',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'bool',
+          name: 'triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'executionFee',
+          type: 'uint256'
         }
       ],
-      "name": "CreateDecreaseOrder",
-      "type": "event"
+      name: 'CancelIncreaseOrder',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'productId',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "margin",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'size',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "leverage",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'bool',
+          name: 'isLong',
+          type: 'bool'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tradeFee",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'triggerPrice',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
+          indexed: false,
+          internalType: 'bool',
+          name: 'triggerAboveThreshold',
+          type: 'bool'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'executionFee',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'bytes',
+          name: 'extraInfo',
+          type: 'bytes'
         }
       ],
-      "name": "CreateIncreaseOrder",
-      "type": "event"
+      name: 'CreateDecreaseOrderV3',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'productId',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "size",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'margin',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'leverage',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'tradeFee',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
+          indexed: false,
+          internalType: 'bool',
+          name: 'isLong',
+          type: 'bool'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'triggerPrice',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "executionPrice",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'bool',
+          name: 'triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'executionFee',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'bytes',
+          name: 'extraInfo',
+          type: 'bytes'
         }
       ],
-      "name": "ExecuteDecreaseOrder",
-      "type": "event"
+      name: 'CreateIncreaseOrderV3',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "string",
-          "name": "executionError",
-          "type": "string"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'productId',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'size',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'bool',
+          name: 'isLong',
+          type: 'bool'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'triggerPrice',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'bool',
+          name: 'triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'executionFee',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'executionPrice',
+          type: 'uint256'
         }
       ],
-      "name": "ExecuteDecreaseOrderError",
-      "type": "event"
+      name: 'ExecuteDecreaseOrder',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "margin",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "leverage",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tradeFee",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "executionPrice",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'string',
+          name: 'executionError',
+          type: 'string'
         }
       ],
-      "name": "ExecuteIncreaseOrder",
-      "type": "event"
+      name: 'ExecuteDecreaseOrderError',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "string",
-          "name": "executionError",
-          "type": "string"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'productId',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'margin',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'leverage',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'tradeFee',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'bool',
+          name: 'isLong',
+          type: 'bool'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'triggerPrice',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'bool',
+          name: 'triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'executionFee',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'executionPrice',
+          type: 'uint256'
         }
       ],
-      "name": "ExecuteIncreaseOrderError",
-      "type": "event"
+      name: 'ExecuteIncreaseOrder',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": false,
-          "internalType": "uint8",
-          "name": "version",
-          "type": "uint8"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'string',
+          name: 'executionError',
+          type: 'string'
         }
       ],
-      "name": "Initialized",
-      "type": "event"
+      name: 'ExecuteIncreaseOrderError',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": false,
-          "internalType": "address",
-          "name": "keeper",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isAlive",
-          "type": "bool"
+          indexed: false,
+          internalType: 'uint8',
+          name: 'version',
+          type: 'uint8'
         }
       ],
-      "name": "OwnerSetKeeper",
-      "type": "event"
+      name: 'Initialized',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "maxOrderSize",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'address',
+          name: 'keeper',
+          type: 'address'
+        },
+        {
+          indexed: false,
+          internalType: 'bool',
+          name: 'isAlive',
+          type: 'bool'
         }
       ],
-      "name": "OwnerSetMaxOrderSize",
-      "type": "event"
+      name: 'OwnerSetKeeper',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "minExecutionFee",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'maxOrderSize',
+          type: 'uint256'
         }
       ],
-      "name": "OwnerSetMinExecutionFee",
-      "type": "event"
+      name: 'OwnerSetMaxOrderSize',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": false,
-          "internalType": "address",
-          "name": "referralStorage",
-          "type": "address"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'minExecutionFee',
+          type: 'uint256'
         }
       ],
-      "name": "OwnerSetReferralStorage",
-      "type": "event"
+      name: 'OwnerSetMinExecutionFee',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": false,
-          "internalType": "address",
-          "name": "gov",
-          "type": "address"
+          indexed: false,
+          internalType: 'address',
+          name: 'referralStorage',
+          type: 'address'
         }
       ],
-      "name": "SetGov",
-      "type": "event"
+      name: 'OwnerSetReferralStorage',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": false,
-          "internalType": "address",
-          "name": "owner",
-          "type": "address"
+          indexed: false,
+          internalType: 'address',
+          name: 'gov',
+          type: 'address'
         }
       ],
-      "name": "SetOwner",
-      "type": "event"
+      name: 'SetGov',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "size",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
+          indexed: false,
+          internalType: 'address',
+          name: 'owner',
+          type: 'address'
         }
       ],
-      "name": "UpdateDecreaseOrder",
-      "type": "event"
+      name: 'SetOwner',
+      type: 'event'
     },
     {
-      "anonymous": false,
-      "inputs": [
+      anonymous: false,
+      inputs: [
         {
-          "indexed": true,
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "orderIndex",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'productId',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "margin",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'size',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "leverage",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'bool',
+          name: 'isLong',
+          type: 'bool'
         },
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tradeFee",
-          "type": "uint256"
+          indexed: false,
+          internalType: 'uint256',
+          name: 'triggerPrice',
+          type: 'uint256'
         },
         {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
+          indexed: false,
+          internalType: 'bool',
+          name: 'triggerAboveThreshold',
+          type: 'bool'
         }
       ],
-      "name": "UpdateIncreaseOrder",
-      "type": "event"
+      name: 'UpdateDecreaseOrder',
+      type: 'event'
     },
     {
-      "stateMutability": "payable",
-      "type": "fallback"
+      anonymous: false,
+      inputs: [
+        {
+          indexed: true,
+          internalType: 'address',
+          name: 'account',
+          type: 'address'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'orderIndex',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'productId',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'margin',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'leverage',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'tradeFee',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'bool',
+          name: 'isLong',
+          type: 'bool'
+        },
+        {
+          indexed: false,
+          internalType: 'uint256',
+          name: 'triggerPrice',
+          type: 'uint256'
+        },
+        {
+          indexed: false,
+          internalType: 'bool',
+          name: 'triggerAboveThreshold',
+          type: 'bool'
+        }
+      ],
+      name: 'UpdateIncreaseOrder',
+      type: 'event'
     },
     {
-      "inputs": [],
-      "name": "EXECUTE_FEE_CAP",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      inputs: [],
+      name: 'acceptGov',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [],
-      "name": "acceptGov",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      inputs: [],
+      name: 'acceptOwner',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [],
-      "name": "acceptOwner",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      inputs: [
+        {
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
+        }
+      ],
+      name: 'cancelDecreaseOrder',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
+        },
+        {
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
         }
       ],
-      "name": "accountOrderSize",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      name: 'cancelDecreaseOrderDelegate',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
+          internalType: 'address[]',
+          name: '_accounts',
+          type: 'address[]'
+        },
+        {
+          internalType: 'uint256[]',
+          name: '_decreaseOrderIndexes',
+          type: 'uint256[]'
         }
       ],
-      "name": "cancelDecreaseOrder",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'cancelDecreaseOrderMultiple',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
         }
       ],
-      "name": "cancelIncreaseOrder",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'cancelIncreaseOrder',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "uint256[]",
-          "name": "_increaseOrderIndexes",
-          "type": "uint256[]"
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256[]",
-          "name": "_decreaseOrderIndexes",
-          "type": "uint256[]"
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
         }
       ],
-      "name": "cancelMultiple",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'cancelIncreaseOrderDelegate',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
+          internalType: 'uint256[]',
+          name: '_increaseOrderIndexes',
+          type: 'uint256[]'
         },
         {
-          "internalType": "uint256",
-          "name": "_size",
-          "type": "uint256"
+          internalType: 'uint256[]',
+          name: '_decreaseOrderIndexes',
+          type: 'uint256[]'
         },
         {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
         },
         {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
         }
       ],
-      "name": "createDecreaseOrder",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
+      name: 'cancelMultiple',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
         },
         {
-          "internalType": "uint256",
-          "name": "_margin",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_leverage",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_executionFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "_referralCode",
-          "type": "bytes32"
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
         }
       ],
-      "name": "createIncreaseOrder",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
+      name: 'cancelNoPositionDecreaseOrderWithAccount',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
+          internalType: 'uint256',
+          name: '_size',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
         }
       ],
-      "name": "decreaseOrders",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "size",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      name: 'createDecreaseOrder',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_size',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
         }
       ],
-      "name": "decreaseOrdersIndex",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      name: 'createDecreaseOrderDelegate',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "_address",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
+          internalType: 'uint256',
+          name: '_size',
+          type: 'uint256'
         },
         {
-          "internalType": "address payable",
-          "name": "_feeReceiver",
-          "type": "address"
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
+        },
+        {
+          internalType: 'bytes',
+          name: '_extraInfo',
+          type: 'bytes'
         }
       ],
-      "name": "executeDecreaseOrder",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'createDecreaseOrderDelegateV3',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "_address",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
+          internalType: 'uint256',
+          name: '_size',
+          type: 'uint256'
         },
         {
-          "internalType": "address payable",
-          "name": "_feeReceiver",
-          "type": "address"
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bytes',
+          name: '_extraInfo',
+          type: 'bytes'
         }
       ],
-      "name": "executeIncreaseOrder",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'createDecreaseOrderV3',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address[]",
-          "name": "_openAddresses",
-          "type": "address[]"
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
         },
         {
-          "internalType": "uint256[]",
-          "name": "_increaseOrderIndexes",
-          "type": "uint256[]"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
         },
         {
-          "internalType": "address[]",
-          "name": "_closeAddresses",
-          "type": "address[]"
+          internalType: 'uint256',
+          name: '_size',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256[]",
-          "name": "_decreaseOrderIndexes",
-          "type": "uint256[]"
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
         },
         {
-          "internalType": "address payable",
-          "name": "_feeReceiver",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bytes',
+          name: '_extraInfo',
+          type: 'bytes'
         }
       ],
-      "name": "executeOrders",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'createDecreaseOrderWithAccount',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address[]",
-          "name": "tokens",
-          "type": "address[]"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256[]",
-          "name": "prices",
-          "type": "uint256[]"
+          internalType: 'uint256',
+          name: '_margin',
+          type: 'uint256'
         },
         {
-          "internalType": "address[]",
-          "name": "_openAddresses",
-          "type": "address[]"
+          internalType: 'uint256',
+          name: '_leverage',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256[]",
-          "name": "_increaseOrderIndexes",
-          "type": "uint256[]"
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
         },
         {
-          "internalType": "address[]",
-          "name": "_closeAddresses",
-          "type": "address[]"
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256[]",
-          "name": "_decreaseOrderIndexes",
-          "type": "uint256[]"
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
         },
         {
-          "internalType": "address payable",
-          "name": "_feeReceiver",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bytes32',
+          name: '_referralCode',
+          type: 'bytes32'
         }
       ],
-      "name": "executeOrdersWithPrices",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'createIncreaseOrder',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
+          internalType: 'uint256',
+          name: '_margin',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_leverage',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bytes32',
+          name: '_referralCode',
+          type: 'bytes32'
+        },
+        {
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
         }
       ],
-      "name": "getDecreaseOrder",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "size",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      name: 'createIncreaseOrderDelegate',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
         },
         {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
+          internalType: 'uint256',
+          name: '_margin',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_leverage',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bytes32',
+          name: '_referralCode',
+          type: 'bytes32'
+        },
+        {
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
+        },
+        {
+          internalType: 'bytes',
+          name: '_extraInfo',
+          type: 'bytes'
         }
       ],
-      "name": "getIncreaseOrder",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "margin",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "leverage",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      name: 'createIncreaseOrderDelegateV3',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [],
-      "name": "gov",
-      "outputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_margin',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_leverage',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_executionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bytes32',
+          name: '_referralCode',
+          type: 'bytes32'
+        },
+        {
+          internalType: 'bytes',
+          name: '_extraInfo',
+          type: 'bytes'
         }
       ],
-      "stateMutability": "view",
-      "type": "function"
+      name: 'createIncreaseOrderV3',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
+          internalType: 'address',
+          name: '_address',
+          type: 'address'
         },
         {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
+        },
+        {
+          internalType: 'address payable',
+          name: '_feeReceiver',
+          type: 'address'
         }
       ],
-      "name": "increaseOrders",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "account",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "margin",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "leverage",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "tradeFee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "isLong",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "executionFee",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      name: 'executeDecreaseOrder',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "increaseOrdersIndex",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_collateralToken",
-          "type": "address"
+          internalType: 'address',
+          name: '_address',
+          type: 'address'
         },
         {
-          "internalType": "uint256",
-          "name": "_minExecutionFee",
-          "type": "uint256"
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
         },
         {
-          "internalType": "address",
-          "name": "_kiloStorageAddr",
-          "type": "address"
+          internalType: 'address payable',
+          name: '_feeReceiver',
+          type: 'address'
         }
       ],
-      "name": "initialize",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'executeIncreaseOrder',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "isKeeper",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "minExecutionFee",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "newGov",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "newOwner",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "owner",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "pendingGov",
-          "type": "address"
-        }
-      ],
-      "name": "setGov",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_account",
-          "type": "address"
+          internalType: 'address[]',
+          name: '_openAddresses',
+          type: 'address[]'
         },
         {
-          "internalType": "bool",
-          "name": "_isActive",
-          "type": "bool"
-        }
-      ],
-      "name": "setKeeper",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_maxOrderSize",
-          "type": "uint256"
-        }
-      ],
-      "name": "setMaxOrderSize",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_minExecutionFee",
-          "type": "uint256"
-        }
-      ],
-      "name": "setMinExecutionFee",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_oracle",
-          "type": "address"
-        }
-      ],
-      "name": "setOracle",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "pendingOwner",
-          "type": "address"
-        }
-      ],
-      "name": "setOwner",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_referralStorage",
-          "type": "address"
-        }
-      ],
-      "name": "setReferralStorage",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
+          internalType: 'uint256[]',
+          name: '_increaseOrderIndexes',
+          type: 'uint256[]'
         },
         {
-          "internalType": "uint256",
-          "name": "_size",
-          "type": "uint256"
+          internalType: 'address[]',
+          name: '_closeAddresses',
+          type: 'address[]'
         },
         {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
+          internalType: 'uint256[]',
+          name: '_decreaseOrderIndexes',
+          type: 'uint256[]'
         },
         {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
+          internalType: 'address payable',
+          name: '_feeReceiver',
+          type: 'address'
         }
       ],
-      "name": "updateDecreaseOrder",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'executeOrders',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [
         {
-          "internalType": "uint256",
-          "name": "_orderIndex",
-          "type": "uint256"
+          internalType: 'address[]',
+          name: 'tokens',
+          type: 'address[]'
         },
         {
-          "internalType": "uint256",
-          "name": "_leverage",
-          "type": "uint256"
+          internalType: 'uint256[]',
+          name: 'prices',
+          type: 'uint256[]'
         },
         {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
+          internalType: 'address[]',
+          name: '_openAddresses',
+          type: 'address[]'
         },
         {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
+          internalType: 'uint256[]',
+          name: '_increaseOrderIndexes',
+          type: 'uint256[]'
+        },
+        {
+          internalType: 'address[]',
+          name: '_closeAddresses',
+          type: 'address[]'
+        },
+        {
+          internalType: 'uint256[]',
+          name: '_decreaseOrderIndexes',
+          type: 'uint256[]'
+        },
+        {
+          internalType: 'address payable',
+          name: '_feeReceiver',
+          type: 'address'
         }
       ],
-      "name": "updateIncreaseOrder",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      name: 'executeOrdersWithPrices',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
     },
     {
-      "inputs": [
+      inputs: [],
+      name: 'gov',
+      outputs: [
         {
-          "internalType": "bool",
-          "name": "_triggerAboveThreshold",
-          "type": "bool"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_triggerPrice",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_productId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "_isLong",
-          "type": "bool"
+          internalType: 'address',
+          name: '',
+          type: 'address'
         }
       ],
-      "name": "validatePositionOrderPrice",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "currentPrice",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
+      stateMutability: 'view',
+      type: 'function'
     },
     {
-      "stateMutability": "payable",
-      "type": "receive"
+      inputs: [
+        {
+          internalType: 'address',
+          name: '_collateralToken',
+          type: 'address'
+        },
+        {
+          internalType: 'uint256',
+          name: '_minExecutionFee',
+          type: 'uint256'
+        },
+        {
+          internalType: 'address',
+          name: '_kiloStorageAddr',
+          type: 'address'
+        }
+      ],
+      name: 'initialize',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'address',
+          name: '',
+          type: 'address'
+        }
+      ],
+      name: 'isKeeper',
+      outputs: [
+        {
+          internalType: 'bool',
+          name: '',
+          type: 'bool'
+        }
+      ],
+      stateMutability: 'view',
+      type: 'function'
+    },
+    {
+      inputs: [],
+      name: 'minExecutionFee',
+      outputs: [
+        {
+          internalType: 'uint256',
+          name: '',
+          type: 'uint256'
+        }
+      ],
+      stateMutability: 'view',
+      type: 'function'
+    },
+    {
+      inputs: [],
+      name: 'newGov',
+      outputs: [
+        {
+          internalType: 'address',
+          name: '',
+          type: 'address'
+        }
+      ],
+      stateMutability: 'view',
+      type: 'function'
+    },
+    {
+      inputs: [],
+      name: 'newOwner',
+      outputs: [
+        {
+          internalType: 'address',
+          name: '',
+          type: 'address'
+        }
+      ],
+      stateMutability: 'view',
+      type: 'function'
+    },
+    {
+      inputs: [],
+      name: 'owner',
+      outputs: [
+        {
+          internalType: 'address',
+          name: '',
+          type: 'address'
+        }
+      ],
+      stateMutability: 'view',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'address',
+          name: '_manager',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_isActive',
+          type: 'bool'
+        }
+      ],
+      name: 'setApprovedRouter',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'address',
+          name: 'pendingGov',
+          type: 'address'
+        }
+      ],
+      name: 'setGov',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_isActive',
+          type: 'bool'
+        }
+      ],
+      name: 'setKeeper',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'uint256',
+          name: '_maxOrderSize',
+          type: 'uint256'
+        }
+      ],
+      name: 'setMaxOrderSize',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'uint256',
+          name: '_minExecutionFee',
+          type: 'uint256'
+        }
+      ],
+      name: 'setMinExecutionFee',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'address',
+          name: '_oracle',
+          type: 'address'
+        }
+      ],
+      name: 'setOracle',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'address',
+          name: 'pendingOwner',
+          type: 'address'
+        }
+      ],
+      name: 'setOwner',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'address',
+          name: '_referralStorage',
+          type: 'address'
+        }
+      ],
+      name: 'setReferralStorage',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_size',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        }
+      ],
+      name: 'updateDecreaseOrder',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_size',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
+        }
+      ],
+      name: 'updateDecreaseOrderDelegate',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_leverage',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        }
+      ],
+      name: 'updateIncreaseOrder',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'uint256',
+          name: '_orderIndex',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_leverage',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'address',
+          name: '_account',
+          type: 'address'
+        },
+        {
+          internalType: 'bool',
+          name: '_1ct',
+          type: 'bool'
+        }
+      ],
+      name: 'updateIncreaseOrderDelegate',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+    },
+    {
+      inputs: [
+        {
+          internalType: 'bool',
+          name: '_triggerAboveThreshold',
+          type: 'bool'
+        },
+        {
+          internalType: 'uint256',
+          name: '_triggerPrice',
+          type: 'uint256'
+        },
+        {
+          internalType: 'uint256',
+          name: '_productId',
+          type: 'uint256'
+        },
+        {
+          internalType: 'bool',
+          name: '_isLong',
+          type: 'bool'
+        }
+      ],
+      name: 'validatePositionOrderPrice',
+      outputs: [
+        {
+          internalType: 'uint256',
+          name: 'currentPrice',
+          type: 'uint256'
+        }
+      ],
+      stateMutability: 'view',
+      type: 'function'
+    },
+    {
+      stateMutability: 'payable',
+      type: 'receive'
     }
   ]
 }

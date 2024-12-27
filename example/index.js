@@ -32,11 +32,10 @@ const getAccount = () => {
 }
 
 document.getElementById('testButton').addEventListener('click', () => {
-  const walletAddress = getAccount()
-  // const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const walletAddress = getAccount() // '0x...';
   const type = 1;
   const position = {
-    tickerPrice: '0.8983',
+    tickerPrice: '0.8806',
     productId: 9,
     leverage: 2,
     isLong: true,
@@ -55,7 +54,7 @@ document.getElementById('testButton').addEventListener('click', () => {
 });
 
 document.getElementById('close').addEventListener('click', () => {
-  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const walletAddress = getAccount() // '0x...';
   const position = {
     productId: 9,
     margin: 50,
@@ -74,10 +73,10 @@ document.getElementById('close').addEventListener('click', () => {
 });
 
 document.getElementById('openOrder').addEventListener('click', () => {
-  const walletAddress = '0x0';
+  const walletAddress = getAccount()
   const type = 2;
   const position = {
-    tickerPrice: '0.356084',
+    tickerPrice: '0.8',
     productId: 9,
     leverage: 2,
     isLong: true,
@@ -96,16 +95,17 @@ document.getElementById('openOrder').addEventListener('click', () => {
 });
 
 document.getElementById('openTPSL').addEventListener('click', () => {
-  const walletAddress = '0x0';
+  const walletAddress = getAccount()
   const type = 3;
   const position = {
-    tickerPrice: '0.356084',
+    tickerPrice: '0.8806',
     productId: 9,
     leverage: 2,
     isLong: true,
     margin: 50,
     point: 0.05,
-    takeProfitPrice: 0.8898
+    takeProfitPrice: 0.99,
+    stopLossPrice: 0.7
   };
 
   kiloClient
@@ -119,16 +119,16 @@ document.getElementById('openTPSL').addEventListener('click', () => {
 });
 
 document.getElementById('OPENStopLoss').addEventListener('click', () => {
-  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
-  const type = 4; // 止损
+  const walletAddress = getAccount()
+  const type = 4; // stop loss
   const position = {
-    tickerPrice: '1', //止损价
+    tickerPrice: '0.7', // stop loss price
     productId: 9, 
     leverage: 2,
     isLong: true,
     margin: 50,
     point: 0.05,
-    entryPrice: '1.2' //买入价
+    entryPrice: '0.8596' // buy price
   };
 
   kiloClient
@@ -142,16 +142,16 @@ document.getElementById('OPENStopLoss').addEventListener('click', () => {
 });
 
 document.getElementById('OPENTakeProfit').addEventListener('click', () => {
-  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
-  const type = 5; // 止盈
+  const walletAddress = getAccount()
+  const type = 5; // take profit
   const position = {
-    tickerPrice: '2', //止损价
+    tickerPrice: '2', // take profit price
     productId: 9, 
     leverage: 2,
     isLong: true,
     margin: 50,
     point: 0.05,
-    entryPrice: '1.2' //买入价
+    entryPrice: '0.8596' // buy price
   };
 
   kiloClient
@@ -165,7 +165,7 @@ document.getElementById('OPENTakeProfit').addEventListener('click', () => {
 });
 
 document.getElementById('cancelOrder').addEventListener('click', () => {
-  const walletAddress = '0x0';
+  const walletAddress = getAccount()
   const type = 'Increase';
 
   kiloClient
@@ -179,7 +179,7 @@ document.getElementById('cancelOrder').addEventListener('click', () => {
 });
 
 document.getElementById('cancelPosition').addEventListener('click', () => {
-  const walletAddress = '0x5710d0E011eb249E1c534A50aA58b23167761184';
+  const walletAddress = getAccount()
   const type = 'Increase';
 
   kiloClient
@@ -193,9 +193,9 @@ document.getElementById('cancelPosition').addEventListener('click', () => {
 });
 
 document.getElementById('updateOrder').addEventListener('click', () => {
-  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const walletAddress = getAccount()
   const updateData = {
-    orderIndex: 62, // order index 不是 productId
+    orderIndex: 62, // order index, not productId
     margin: 50,
     leverage: 2,
     limitPrice: 0.9,
@@ -213,7 +213,7 @@ document.getElementById('updateOrder').addEventListener('click', () => {
 });
 
 document.getElementById('getPositionList').addEventListener('click', () => {
-  const walletAddress = '0x1a6c2eBB432e09Af47C5cc979680d33549B69538';
+  const walletAddress = getAccount()
   const ids = [1, 2, 9]; // productIds
 
   kiloClient

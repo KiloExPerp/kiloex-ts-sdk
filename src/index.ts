@@ -173,7 +173,7 @@ interface Position {
 	isLong: boolean
 	margin: number
 	point: number
-	stopLessPrice?: number
+	stopLossPrice?: number
 	takeProfitPrice?: number
 	entryPrice?: number // refers to the price point at which a buy order is executed when entering the product in a trade.
 }
@@ -189,7 +189,7 @@ interface Position {
  * @param position.isLong trade is long or short
  * @param position.margin 
  * @param position.point acceptable price point
- * @param position.stopLessPrice stop loss price
+ * @param position.stopLossPrice stop loss price
  * @param position.takeProfitPrice take profit price
  * @param position.entryPrice refers to the price point at which a buy order is executed when entering the product in a trade. type is 'StopLoss' or 'TakeProfit' effect
  * @returns 
@@ -307,7 +307,7 @@ const increasePosition = async (
 	
 		if (type === OpenType.TPSL) {
 			const {
-				stopLessPrice,
+				stopLossPrice,
 				takeProfitPrice,
 			} = position
 
@@ -319,7 +319,7 @@ const increasePosition = async (
 			}) as [number, number];
 
 			const [ minExecutionFee, orderBookMinExecutionFee]  = result
-			const isDoubleFee = decimal2Big(stopLessPrice).gt(0) && decimal2Big(takeProfitPrice).gt(0)
+			const isDoubleFee = decimal2Big(stopLossPrice).gt(0) && decimal2Big(takeProfitPrice).gt(0)
 			const limitOrderfee = decimal2Big(orderBookMinExecutionFee).times(isDoubleFee ? 2 : 1)
 			const value = big2decimal(decimal2Big(minExecutionFee).plus(limitOrderfee)).toString()
 
@@ -346,7 +346,7 @@ const increasePosition = async (
 					big2decimal(acceptablePrice),
 					minExecutionFee,
 					stringToHex('', { size: 32 }),
-					big2decimal(stopLessPrice || 0),
+					big2decimal(stopLossPrice || 0),
 					big2decimal(takeProfitPrice || 0),
 					utils.solidityPack(['uint8'], [getBrokerId()])
 				],

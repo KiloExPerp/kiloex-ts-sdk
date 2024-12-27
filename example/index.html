@@ -5,25 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SDK Demo</title>
   </head>
+  <style>
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .content {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 600px;
+    }
+    .account {
+      width: 350px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .action-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input {
+      width: 350px;
+      padding: 3px 8px;
+    }
+    button {
+      width: 350px;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
   <body>
-    <h1>SDK Demo</h1>
-    <div>
-      <input id="walletAddress" type="text" placeholder="Enter wallet address" />
+    <div class="content">
+      <h1>SDK Demo</h1>
+      <div class="account">
+        <input id="walletAddress" type="text" style="width: 350px;" placeholder="Enter wallet address" />
+      </div>
+      <div class="action-group">
+        <button id="connectButton">Connect Wallet Demo</button>
+        <button id="testButton">Open Market Order</button>
+        <button id="close">Close Market Order</button>
+        <button id="openOrder">Open limit Order</button>
+        <button id="openTPSL">Open Market + TP/SL</button>
+        <button id="OPENStopLoss">Open Stop Loss</button>
+        <button id="OPENTakeProfit">Open Take Profit</button>
+        <button id="cancelOrder">Cancel Limit Order</button>
+        <button id="cancelPosition">Cancel Position</button>
+        <button id="updateOrder">Update TP/SL Position</button>
+        <button id="getPositionList">Get Positions List</button>
+      </div>
+      <div id="positionList"></div>
+      <div id="cryptoInfo"></div>
     </div>
-    <button id="connectButton">Connect Wallet Demo</button>
-    <button id="testButton">OPEN POSITION</button>
-    <button id="close">CLOSE POSITION</button>
-    <button id="openOrder">OPEN ORDER</button>
-    <button id="openTPSL">OPEN TP/SL</button>
-    <button id="OPENStopLoss">OPEN STOP LOSS</button>
-    <button id="OPENTakeProfit">OPEN TAKE PROFIT</button>
-    <button id="cancelOrder">CANCEL ORDER</button>
-    <button id="cancelPosition">CANCEL POSITION</button>
-    <button id="updateOrder">UPDATE TP/SL POSITION</button>
-    <button id="getPositionList">GET POSITION LIST</button>
-    
-    <div id="cryptoInfo"></div>
-    <div id="positionList"></div>
     <script type="module">
       import { ethers } from '../node_modules/ethers/dist/ethers.esm.js';
 
