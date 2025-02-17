@@ -4,12 +4,16 @@ import { ChainId, activeChainConfig } from '../config';
 const API_URLS: Record<ChainId, string> =  {
 	[ChainId.BSCTEST]: 'https://testapi.kiloex.io',
   [ChainId.BSC]: 'https://api.kiloex.io',
+  [ChainId.BSCREX]: 'https://revoxapi.kiloex.io',
+  [ChainId.BSCBOX]: 'https://deboxapi.kiloex.io',
   [ChainId.OPBNB]: 'https://opapi.kiloex.io',
   [ChainId.MANTA]: 'https://mantaapi.kiloex.io',
 }
 
 export const INDEX_SYMBOL_MAPS: Record<ChainId, string> = {
 	[ChainId.BSC]: 'https://app.kiloex.io/backendstatic/bnb/symbols.json',
+	[ChainId.BSCREX]: 'https://app.kiloex.io/backendstatic/bnb/symbols.json',
+	[ChainId.BSCBOX]: 'https://app.kiloex.io/backendstatic/bnb/symbols.json',
 	[ChainId.OPBNB]: 'https://app.kiloex.io/backendstatic/opbnb/symbols.json',
 	[ChainId.MANTA]: 'https://app.kiloex.io/backendstatic/manta/symbols.json',
 	[ChainId.BSCTEST]: 'https://testapi.kiloex.io/index/symbols',
