@@ -26,6 +26,22 @@ export const addressMap: {
     marketOrderWithTriggerOrder: '0x256035E9099C266F2a9bd3BDebC4c3f5a623EaeB',
     perpTradeAddr: '0x7C09a8df940cF1D14d4C24f90aCa39EE619f0864',
   },
+  [ChainId.BSCREX]: {
+    kusdAddr: '0x90869b3a42E399951bd5F5fF278B8CC5ee1Dc0fE',
+    orderBookAddr: '0x5B901B506D97E00A4a531A1b60470c0A908faa97',
+    positionRouterAddr: '0x6523E034063eBe3f80D07e7708E19e32814cB093',
+    kiloPerpViewAddr: '0xd1A5c53671E4F52bD91C8eE6D3025E6d253DED66',
+    marketOrderWithTriggerOrder: '0xD04715535b9dB3fE05A4E1CC10118ea193B402A6',
+    perpTradeAddr: '0x4632875527426e7e1638C8150483D7fE06706a81',
+  },
+  [ChainId.BSCBOX]: {
+    kusdAddr: '0x6386Adc4BC9c21984E34fD916BB349dD861742af',
+    orderBookAddr: '0x403ADf93d037197D08C94Ff358aeA1255a89D05d',
+    positionRouterAddr: '0x8B10822E143Da73BDE6a0Cec05b40Dd549E51FeA',
+    kiloPerpViewAddr: '0x767A70c1b0E6b436e36bBa016b1a22688e43B833',
+    marketOrderWithTriggerOrder: '0xD7da4471fd9d6234c9817acbd7568e210D0857A1',
+    perpTradeAddr: '0x19236922A5b67eF138635Deef8f6ee28A67fdd56',
+  },
   [ChainId.OPBNB]: {
     kusdAddr: '0x9e5aac1ba1a2e6aed6b32689dfcf62a509ca96f3',
     orderBookAddr: '0x43E3E6FFb2E363E64cD480Cbb7cd0CF47bc6b477',

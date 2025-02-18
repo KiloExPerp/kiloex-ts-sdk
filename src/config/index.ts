@@ -1,5 +1,14 @@
 import { bsc, opBNB, bscTestnet, Chain } from 'viem/chains'
+import { revoxBsc, deboxBsc } from './customChain'
 
+enum ChainId {
+  BSCTEST = 97,
+  BSC = 56,
+	BSCREX = 56111111,
+	BSCBOX = 56111112,
+  OPBNB = 204,
+  MANTA = 169,
+}
 interface ChainConfigType {
 	chainId: ChainId;
 	name: string
@@ -9,13 +18,6 @@ interface ChainConfigType {
 
 interface ChainConfig {
 	[chainName: number]: ChainConfigType;
-}
-
-enum ChainId {
-  BSCTEST = 97,
-  BSC = 56,
-  OPBNB = 204,
-  MANTA = 169,
 }
 
 // activeChainConfig is a global variable that will be used to store the active chain configuration
@@ -44,6 +46,22 @@ const chainConfig: ChainConfig = {
       'https://bsc-dataseed4.binance.org/'
     ],
 		chain: bsc,
+	},
+	[ChainId.BSCREX]: {
+		chainId: ChainId.BSCREX,
+		name: 'BSCREX',
+		rpc:[
+      'https://rpc.ankr.com/bsc'
+    ],
+		chain: revoxBsc,
+	},
+	[ChainId.BSCBOX]: {
+		chainId: ChainId.BSCBOX,
+		name: 'BSCBOX',
+		rpc:[
+      'https://rpc.ankr.com/bsc'
+    ],
+		chain: deboxBsc,
 	},
 	[ChainId.OPBNB]: {
 		chainId: ChainId.OPBNB,

@@ -1,8 +1,8 @@
 import { create, ChainId } from '../dist/index';
-const kiloClient = create(ChainId.BSCTEST);
+const kiloClient = create(ChainId.BSCREX);
 
 kiloClient
-  .supportedProductsByChain(ChainId.BSCTEST)
+  .supportedProductsByChain(ChainId.BSCREX)
   .then(result => {
     const cryptoInfoDiv = document.getElementById('cryptoInfo');
 
@@ -212,9 +212,51 @@ document.getElementById('updateOrder').addEventListener('click', () => {
     });
 });
 
+document.getElementById('openRevoxOrder').addEventListener('click', () => {
+  const walletAddress = getAccount() // '0x...';
+  const type = 1;
+  const position = {
+    tickerPrice: '0.8806',
+    productId: 127,
+    leverage: 2,
+    isLong: true,
+    margin: 2,
+    point: 0.05
+  };
+
+  kiloClient
+    .increasePosition(walletAddress, type, position)
+    .then(result => {
+      console.log('Result from async function:', result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
+document.getElementById('closeRevoxOrder').addEventListener('click', () => {
+  const walletAddress = getAccount() // '0x...';
+  const position = {
+    productId: 127,
+    margin: 2,
+    isLong: true,
+    tickerPrice: '0.01890',
+    point: 0.05
+  };
+
+  kiloClient
+    .closePosition(walletAddress, position)
+    .then(result => {
+      console.log('Result from async function:', result);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
 document.getElementById('getPositionList').addEventListener('click', () => {
   const walletAddress = getAccount()
-  const ids = [1, 2, 9]; // productIds
+  const ids = [1, 2, 9, 127]; // productIds
 
   kiloClient
     .getPositionList(walletAddress, ids)
